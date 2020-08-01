@@ -1,0 +1,9 @@
+# Pipenv (we commit requirements.txt for now)
+/Pipfile
+/Pipfile.lock
+
+# Cache
+__pycache__/
+
+# Binary files
+*.db

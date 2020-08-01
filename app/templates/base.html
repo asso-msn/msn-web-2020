@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		{% if title %}
+		{{ title }} - Make Some Noise
+		{% else %}
+		Make Some Noise, pour l'amour des jeux musicaux d'arcade!
+		{% endif %}
+	</title>
+</head>
+<body>
+	<ul id="flash-messages">
+		{% for message in get_flashed_messages() %}
+		<li>{{ message }}</li>
+		{% endfor %}
+	</ul>
+	{% block content %}
+	{% endblock %}
+</body>
+</html>

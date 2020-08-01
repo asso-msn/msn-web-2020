@@ -1,0 +1,7 @@
+<p>
+	{{ input.label }}
+	{{ input }}
+	{% for error in input.errors %}
+	{% include "_form_error.html" %}
+	{% endfor %}
+</p>

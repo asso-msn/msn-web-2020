@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST" action="">
+	{{ form.hidden_tag() }}
+	{% with input=form.username %}{% include "_form_simple_input.html" %}{% endwith %}
+	{% with input=form.password %}{% include "_form_simple_input.html" %}{% endwith %}
+	<p>{{ form.remember_me }}{{ form.remember_me.label }}</p>
+	<p>{{ form.submit }}</p>
+</form>
+{% endblock %}
