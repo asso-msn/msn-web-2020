@@ -1,0 +1,27 @@
+#navbar {
+	background-color: white;
+	padding: 1em 2em;
+	width: 100%;
+	position: sticky;
+	top: 0;
+	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+}
+
+#navbar .container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#navbar .main-title {
+	margin-right: 6em;
+}
+
+#navbar nav {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	flex-grow: 1;
+}

@@ -4,6 +4,9 @@
 
 # Cache
 __pycache__/
+.webassets-cache/
 
 # Binary files
 *.db
+
+/app/static/css/bundle.css

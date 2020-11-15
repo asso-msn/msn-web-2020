@@ -1,0 +1,52 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: 'Poppins', sans-serif;
+}
+
+a {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.emoji, .icon {
+	width: 1em;
+	height: 1em;
+	margin: 0 .05em 0 .1em;
+	vertical-align: -0.1em;
+}
+
+.icon.discord {
+	vertical-align: -0.2em;
+}
+
+.main-title {
+	font-family: 'Bungee', sans-serif;
+	text-decoration: none;
+	color: inherit;
+}
+
+.main-title .main-logo {
+	width: 3em;
+	height: 3em;
+	margin-right: .5em;
+	vertical-align: -1.1em;
+}
+
+.button {
+	border-radius: 1em;
+	padding: 0.2em 1em;
+}
+
+.button.discord {
+	background-color: var(--discord);
+	color: white;
+}
+
+.container {
+	max-width: 1200px;
+	margin: auto;
+}

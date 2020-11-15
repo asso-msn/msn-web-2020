@@ -1,0 +1,45 @@
+footer {
+	color: white;
+	background-color: var(--msn);
+	text-align: center;
+	padding: 1em;
+}
+
+footer .main-title {
+	font-size: 1.4em;
+	margin: 1em 0;
+	display: block;
+}
+
+footer nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	margin: 1em 0;
+}
+
+footer nav section {
+	display: flex;
+	flex-direction: column;
+}
+
+footer nav .section-name {
+	font-weight: bold;
+}
+
+footer nav a {
+	margin: 0.3em 0;
+}
+
+#sns {
+	font-size: 2.5em;
+}
+
+#sns a {
+	margin: 0 0.2em;
+}
+
+#copy {
+	padding: 0.5em 0;
+	text-align: center;
+}

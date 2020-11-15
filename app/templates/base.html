@@ -9,14 +9,117 @@
 		Make Some Noise, pour l'amour des jeux musicaux d'arcade!
 		{% endif %}
 	</title>
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+	{% assets output="css/bundle.css",
+		"css/fonts.css",
+		"css/variables.css",
+		"css/base.css",
+		"css/navbar.css",
+		"css/main.css",
+		"css/footer.css",
+		"css/flash.css",
+		"css/responsive.css"
+	%}
+	<link rel="stylesheet" href="{{ ASSET_URL }}">
+	{% endassets %}
+
+	<script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-	<ul id="flash-messages">
-		{% for message in get_flashed_messages() %}
-		<li>{{ message }}</li>
-		{% endfor %}
-	</ul>
-	{% block content %}
-	{% endblock %}
+
+	<div id="navbar">
+		<div class="container">
+			<div class="main-title">
+				<img class="main-logo" src="{{ url_for('static', filename='logo-black.png') }}">
+				Make Some Noise
+			</div>
+			<nav>
+				<section>
+					<a class="section-name">L'association</a>
+				</section>
+				<section>
+					<a class="section-name">Explorer</a>
+				</section>
+				<section>
+					<a class="section-name">Les événements</a>
+				</section>
+				<section>
+					<a class="section-name">La communauté</a>
+				</section>
+				<a class="button discord">
+					Connexion
+					<img class="icon discord" src="{{ url_for('static', filename='icons/discord-white.png') }}">
+				</a>
+			</nav>
+		</div>
+	</div>
+
+
+	<main>
+
+		<ul id="flash-messages">
+			{% for message in get_flashed_messages() %}
+			<li>{{ message }}</li>
+			{% endfor %}
+		</ul>
+
+		{% block content %}
+		{% endblock %}
+
+	</main>
+
+
+	<footer>
+		<a class="main-title" href="{{ url_for('main.index') }}">
+			<img class="main-logo" src="{{ url_for('static', filename='logo-white.png') }}">
+			Make Some Noise
+		</a>
+
+		<nav class="container">
+			<section>
+				<a class="section-name">L'association</a>
+			</section>
+			<section>
+				<a class="section-name">Explorer</a>
+				<a>Les jeux</a>
+				<a>Où jouer</a>
+				<a>Les associations</a>
+			</section>
+			<section>
+				<a class="section-name">Les Événements</a>
+				<a>Prochain événements</a>
+				<a>Gallerie</a>
+				<a>Archives</a>
+			</section>
+			<section>
+				<a class="section-name">La communauté</a>
+				<a>Joueurs</a>
+				<a>Médias</a>
+				<a>Carte</a>
+			</section>
+		</nav>
+
+		<div id="sns">
+			<a><img class="icon" src="{{ url_for('static', filename='icons/discord-white.png') }}"></a>
+			<a><img class="icon" src="{{ url_for('static', filename='icons/facebook-white.png') }}"></a>
+			<a><img class="icon" src="{{ url_for('static', filename='icons/twitter-white.png') }}"></a>
+		</div>
+	</footer>
+
+	<div id="copy">
+		All images © 2016 - {{ moment().format('Y') }} MAKE SOME NOISE
+	</div>
+
+	<script>
+		twemoji.parse(document.body);
+	</script>
+	{{ moment.include_jquery() }}
+	{{ moment.include_moment() }}
 </body>
 </html>

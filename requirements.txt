@@ -1,5 +1,9 @@
 flask
 flask-login
 flask-migrate
+flask-moment
 flask-sqlalchemy
 flask-wtf
+
+# Front
+flask-assets
