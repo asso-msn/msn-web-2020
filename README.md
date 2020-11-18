@@ -13,6 +13,16 @@ the community to a wider audience, but also promoting our organization efficient
 This website is made with the Python web *microframework* [Flask](flask.palletsprojects.com/).
 It uses HTML templates written in [Jinja2](https://github.com/pallets/jinja/).
 
+## Running locally
+
+With venv
+```
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+flask run
+```
+
 ## Contributing
 
 Contributions are welcome. Please don't hesitate to submit PRs if you want to fix stuffs.
