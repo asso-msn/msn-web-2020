@@ -1,4 +1,31 @@
+{% set styles=['index'] %}
+{% set main_id='index' %}
 {% extends "base.html" %}
 {% block content %}
-bjr index
+
+<section id="landing" class="container col2">
+	<div id="landing-text" class="padded-right">
+		<h2>L'expérience jeux musicaux d'arcade en France</h2>
+		<p class="content">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		</p>
+		<p class="col-centered">
+			<a class="button">Découvrir l'association</a>
+		</p>
+	</div>
+	<div id="landing-decoration"></div>
+</section>
+
+<section id="next-events" class="container">
+	<h2>Les prochains événements</h2>
+</section>
+
+<section id="discover-rhythm-games">
+	<h2>Découvrez les jeux de rythme</h2>
+</section>
+
+<section id="previous-events">
+	<h2>Les derniers événements</h2>
+</section>
+
 {% endblock %}

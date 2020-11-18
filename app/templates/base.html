@@ -19,6 +19,7 @@
 		"css/fonts.css",
 		"css/variables.css",
 		"css/base.css",
+		"css/buttons.css",
 		"css/navbar.css",
 		"css/main.css",
 		"css/footer.css",
@@ -27,6 +28,9 @@
 	%}
 	<link rel="stylesheet" href="{{ ASSET_URL }}">
 	{% endassets %}
+	{% for style in styles %}
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/' + style + '.css') }}">
+	{% endfor %}
 
 	<script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
 </head>
@@ -61,7 +65,7 @@
 	</div>
 
 
-	<main>
+	<main id="{{ main_id }}">
 
 		<ul id="flash-messages">
 			{% for message in get_flashed_messages() %}
@@ -108,12 +112,13 @@
 		<div id="sns">
 			<a><img class="icon" src="{{ url_for('static', filename='icons/discord-white.png') }}"></a>
 			<a><img class="icon" src="{{ url_for('static', filename='icons/facebook-white.png') }}"></a>
+			<a><img class="icon" src="{{ url_for('static', filename='icons/github-white.png') }}"></a>
 			<a><img class="icon" src="{{ url_for('static', filename='icons/twitter-white.png') }}"></a>
 		</div>
 	</footer>
 
 	<div id="copy">
-		All images © 2016 - {{ moment().format('Y') }} MAKE SOME NOISE
+		All images (including icons) except those from brands © 2016 - {{ moment().format('Y') }} MAKE SOME NOISE
 	</div>
 
 	<script>

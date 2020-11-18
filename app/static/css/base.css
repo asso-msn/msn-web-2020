@@ -12,6 +12,14 @@ a {
 	text-decoration: none;
 }
 
+h2 {
+	font-size: 1.5em;
+}
+
+section > h2 {
+	text-align: center;
+}
+
 .emoji, .icon {
 	width: 1em;
 	height: 1em;
@@ -36,17 +44,29 @@ a {
 	vertical-align: -1.1em;
 }
 
-.button {
-	border-radius: 1em;
-	padding: 0.2em 1em;
-}
-
-.button.discord {
-	background-color: var(--discord);
-	color: white;
-}
-
 .container {
 	max-width: 1200px;
 	margin: auto;
+	padding-left: var(--container-padding);
+	padding-right: var(--container-padding);
+}
+
+.section-title {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+.col-centered {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.col2 {
+	display: flex;
+	flex-direction: row;
+}
+
+.col2 > * {
+	width: 50%;
 }
