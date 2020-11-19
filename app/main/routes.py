@@ -1,7 +1,11 @@
-from flask import render_template
+from flask import url_for, redirect, render_template
 
 from . import bp
 
 @bp.route('/')
-def index():
-    return render_template('index.html')
+def home():
+    return render_template('home.html')
+
+@bp.route('/about-msn')
+def about_msn():
+    return render_templatr('about-msn.html')

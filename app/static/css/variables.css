@@ -3,8 +3,12 @@
 	--discord: #7289DA;
 	
 	--dark-blue: #003566;
-	--gray: #DDDDDD;
-	--light-gray: #4D4D4D;
+	--light-gray: #DDDDDD;
+	--gray: #4D4D4D;
 
-	--container-padding: 1em;
+	--font-medium: 500;
+
+	--container-padding: 3em;
+	--shadow-color: rgba(0, 0, 0, .25);
+	--shadow: 0 1px 6px var(--shadow-color);
 }

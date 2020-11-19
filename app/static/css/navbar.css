@@ -26,3 +26,11 @@
 	justify-content: space-between;
 	flex-grow: 1;
 }
+
+#navbar a, #navbar a:visited {
+	color: inherit;
+}
+
+#navbar a.button {
+	color: white;
+}

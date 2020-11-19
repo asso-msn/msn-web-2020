@@ -2,7 +2,9 @@ footer {
 	color: white;
 	background-color: var(--msn);
 	text-align: center;
-	padding: 1em;
+	padding: 1em 100px;
+	position: relative;
+	min-height: 350px;
 }
 
 footer .main-title {
@@ -31,6 +33,42 @@ footer nav a {
 	margin: 0.3em 0;
 }
 
+#footer-bars {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+#footer-bars .bar {
+	width: 150px;
+	height: 25px;
+	border-radius: 25px;
+	background-color: white;
+	margin: 10px 0;
+}
+
+#footer-bars-left, #footer-bars-right {
+	position: absolute;
+}
+
+#footer-bars .bar:nth-child(2) {
+	left: -20px;
+	position: relative;
+}
+
+#footer-bars-left {
+	left: -50px;
+	top: 100px;
+	transform: rotate(-50deg);
+}
+
+#footer-bars-right {
+	right: -75px;
+	top: 200px;
+	transform: rotate(-50deg);
+}
+	
 #sns {
 	font-size: 2.5em;
 }

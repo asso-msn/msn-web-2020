@@ -1,0 +1,159 @@
+#landing {
+	min-height: calc(100vh - 10em);
+	align-items: center;
+	position: relative;
+}
+
+#landing-text {
+	width: calc(50% - (var(--container-padding) + 100px));
+}
+
+#landing-text .content {
+	font-size: 1.2em;
+}
+
+#landing-decoration {
+	height: 100%;
+	flex-grow: 1;
+	position: absolute;
+	top: 0;
+	left: 50%;
+}
+
+#landing-decoration:before {
+	content: '';
+	display: block;
+	background-color: var(--msn);
+	height: 100%;
+	z-index: -1;
+	width: 100vw;
+}
+
+#landing-bars {
+	position: absolute;
+	width: 100%;
+	top: 70%;
+}
+
+#landing-bars .bar {
+	width: 100vw;
+	height: 60px;
+	margin: 10px 0;
+	border-radius: 30px;
+	background-color: var(--gray);
+	position: relative;
+}
+
+#landing-bars .bar:nth-child(1) {
+	left: -60px;
+}
+
+#landing-bars .bar:nth-child(2) {
+	left: -30px;
+}
+
+#landing-bars .bar:nth-child(3) {
+	left: -80px;
+}
+
+#next-events .content {
+	display: flex;
+	flex-flow: wrap row;
+	justify-content: space-between;
+	margin: 3em 0;
+}
+
+.event {
+	width: calc(50% - 2em);
+	box-shadow: 0 3px 6px -2px var(--shadow-color);
+}
+
+.event header {
+	height: 200px;
+	background-position: center center;
+	background-size: cover;
+	position: relative;
+}
+
+.event .relative-time {
+	border-radius: 1em;
+	background-color: white;
+	color: var(--msn);
+	font-weight: bold;
+	font-size: small;
+	top: 1em;
+	left: 1em;
+	position: absolute;
+	padding: 0.3em 1em;
+}
+
+.event .details {
+	display: flex;
+	flex-direction: row;
+	padding: 2em;
+}
+
+.event .detailed-time {
+	min-width: 170px;
+}
+
+.event .detailed-time .day-name,
+.event .detailed-time .time {
+	font-size: 1.3em;
+}
+
+
+.event .detailed-time .day-number {
+	color: var(--dark-blue);
+	font-weight: bold;
+	font-size: 3em;
+}
+
+.event .detailed-time .month {
+	font-size: 2em;
+	font-weight: var(--font-medium);
+}
+
+.event .detailed-time .day-number,
+.event .detailed-time .month {
+	text-transform: uppercase;
+	line-height: 1em;
+}
+
+.event .detailed-text {
+	margin-left: 1em;
+}
+
+.event .event-register {
+	margin-top: 2em;
+}
+
+.button.event-register {
+	font-size: 1em;
+	padding: 0.3em 0;
+	background-color: white;
+	color: var(--msn);
+	border: 1px solid var(--msn);
+}
+
+.event .categories {
+	margin-bottom: 1em;
+	font-size: smaller;
+}
+
+.event .category {
+	background-color: red;
+	border-radius: 2em;
+	color: white;
+	padding: 0.2em 1.5em;
+}
+
+.event .title {
+	font-size: large;
+	font-weight: var(--font-medium);
+}
+
+.event .description {
+	margin: 0;
+	font-size: small;
+}

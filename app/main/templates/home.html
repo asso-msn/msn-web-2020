@@ -1,0 +1,97 @@
+{% set styles=['home'] %}
+{% set main_id='home' %}
+{% extends "base.html" %}
+{% block content %}
+
+<section id="landing" class="container col2">
+	<div id="landing-text" class="padded-right">
+		<h2>L'expérience jeux musicaux d'arcade en France</h2>
+		<p class="content">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		</p>
+		<p class="col-centered">
+			<a class="button">Découvrir l'association</a>
+		</p>
+	</div>
+	<div id="landing-decoration">
+		<div id="landing-bars">
+			<div class="bar"></div>
+			<div class="bar"></div>
+			<div class="bar"></div>
+		</div>
+	</div>
+</section>
+
+<section id="next-events" class="container">
+	<h2>Les prochains événements</h2>
+	<div class="content">
+
+		<div class="event">
+			<header style="background-image: url('https://pbs.twimg.com/media/EhuW_rkXcAA1q9-?format=jpg')">
+				<span class="relative-time">Dans 3 jours</span>
+			</header>
+			<div class="details">
+				<div class="detailed-time col-centered">
+					<span class="day-name">Samedi</span>
+					<span class="day-number">18</span>
+					<span class="month">Mai</span>
+					<span class="time">14h&nbsp;-&nbsp;20h</span>
+				</div>
+				<div class="detailed-text col-spaced">
+					<div>
+						<div class="categories">
+							<span class="category">Meet-up</span>
+						</div>
+						<div class="title">Meet-up hebdomadaire</div>
+						<p class="description">
+							Venez jouer à des jeux parce que on est jolis et en plus on mange
+							pas les petits enfants.
+						</p>
+					</div>
+					<a class="button event-register">S'inscrire</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="event">
+			<header style="background-image: url('https://pbs.twimg.com/media/EhuW_rkXcAA1q9-?format=jpg')">
+				<div class="relative-time">Dans 10 jours</div>
+			</header>
+			<div class="details">
+				<div class="detailed-time col-centered">
+					<span class="day-name">Week-end</span>
+					<span class="day-number">25&nbsp;-&nbsp;26</span>
+					<span class="month">Mai</span>
+					<span class="time">14h&nbsp;-&nbsp;20h</span>
+				</div>
+				<div class="detailed-text col-spaced">
+					<div>
+						<div class="categories">
+							<span class="category">Meet-up</span>
+						</div>
+						<div class="title">Meet-up hebdomadaire</div>
+						<p class="description">
+							Venez jouer à des jeux parce que on est jolis et en plus on mange
+							pas les petits enfants.
+						</p>
+					</div>
+					<a class="button event-register">S'inscrire</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<p class="col-centered">
+		<a class="button">Voir tous les prochains événements</a>
+	</p>
+</section>
+
+<section id="discover-rhythm-games">
+	<h2>Découvrez les jeux de rythme</h2>
+</section>
+
+<section id="previous-events">
+	<h2>Les derniers événements</h2>
+</section>
+
+{% endblock %}

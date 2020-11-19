@@ -4,6 +4,7 @@
 	background-color: var(--msn);
 	font-size: 1.15em;
 	color: white;
+	text-align: center;
 }
 
 .button.discord {

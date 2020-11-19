@@ -39,16 +39,16 @@
 
 	<div id="navbar">
 		<div class="container">
-			<div class="main-title">
+			<a class="main-title" href="{{ url_for('main.home') }}">
 				<img class="main-logo" src="{{ url_for('static', filename='logo-black.png') }}">
 				Make Some Noise
-			</div>
+			</a>
 			<nav>
 				<section>
-					<a class="section-name">L'association</a>
+					<a class="section-name" href="{{ url_for('main.about_msn') }}">L'association</a>
 				</section>
 				<section>
-					<a class="section-name">Explorer</a>
+					<a class="section-name">Explorer <img class="icon" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></a>
 				</section>
 				<section>
 					<a class="section-name">Les événements</a>
@@ -80,7 +80,17 @@
 
 
 	<footer>
-		<a class="main-title" href="{{ url_for('main.index') }}">
+		<div id="footer-bars">
+			<div id="footer-bars-left">
+				<div class="bar"></div>
+				<div class="bar"></div>
+			</div>
+			<div id="footer-bars-right">
+				<div class="bar"></div>
+				<div class="bar"></div>
+			</div>
+		</div>
+		<a class="main-title" href="{{ url_for('main.home') }}">
 			<img class="main-logo" src="{{ url_for('static', filename='logo-white.png') }}">
 			Make Some Noise
 		</a>

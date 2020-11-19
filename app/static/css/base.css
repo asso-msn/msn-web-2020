@@ -5,6 +5,7 @@
 body {
 	margin: 0;
 	font-family: 'Poppins', sans-serif;
+	overflow-x: hidden;
 }
 
 a {
@@ -14,15 +15,18 @@ a {
 
 h2 {
 	font-size: 1.5em;
+	font-weight: var(--font-medium);
 }
 
 section > h2 {
 	text-align: center;
+	margin: 2em 0 1em;
 }
 
 .emoji, .icon {
 	width: 1em;
 	height: 1em;
+	object-fit: contain;
 	margin: 0 .05em 0 .1em;
 	vertical-align: -0.1em;
 }
@@ -60,6 +64,12 @@ section > h2 {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.col-spaced {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .col2 {
