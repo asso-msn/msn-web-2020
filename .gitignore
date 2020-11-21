@@ -9,6 +9,6 @@ __pycache__/
 # Binary files
 *.db
 
-/app/static/css/bundle.css
+/app/static/bundle.css
 temp-*
 tmp-*
