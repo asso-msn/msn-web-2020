@@ -1,5 +1,5 @@
 #landing {
-	min-height: calc(100vh - 10em);
+	height: calc(100vh - 10em);
 	align-items: center;
 	position: relative;
 }
@@ -23,22 +23,28 @@
 #landing-decoration:before {
 	content: '';
 	display: block;
+	position: absolute;
 	background-color: var(--msn);
 	height: 100%;
 	z-index: -1;
 	width: 100vw;
 }
 
+#landing-picture {
+	height: 50vh;
+	position: relative;
+	top: 70px;
+	left: 50px;
+}
+
 #landing-bars {
-	position: absolute;
 	width: 100%;
-	top: 70%;
 }
 
 #landing-bars .bar {
 	width: 100vw;
-	height: 60px;
-	margin: 10px 0;
+	height: 6vh;
+	margin: 1vh 0;
 	border-radius: 30px;
 	background-color: var(--gray);
 	position: relative;
@@ -156,4 +162,44 @@
 .event .description {
 	margin: 0;
 	font-size: small;
+}
+
+#discover-rhythm-games .content {
+	font-size: 1.25em;
+}
+
+#discover-rhythm-games .content .title {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+#discover-rhythm-games .content > * {
+	padding: 2em;
+	text-align: center;
+	background-size: cover;
+}
+
+#discover-rhythm-games .button {
+	font-size: large;
+	padding: 0.2em 3em;
+}
+
+#discover-rhythm-games .left {
+	background-image: url('https://cdn.discordapp.com/attachments/559512661717417986/779769789446488124/unknown.png');
+}
+
+#discover-rhythm-games .right {
+	background-image: url('https://cdn.discordapp.com/attachments/559512661717417986/779769957910446090/unknown.png');
+}
+
+#previous-events .content img {
+	border-radius: 20px;
+	max-width: 100%;
+	object-fit: contain;
+}
+
+#previous-events .content .grid-item,
+#previous-events .content .grid-sizer {
+	width: calc(33% - 1em);
+	margin: .5em;
 }

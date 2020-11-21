@@ -10,3 +10,5 @@ __pycache__/
 *.db
 
 /app/static/css/bundle.css
+temp-*
+tmp-*

@@ -5,7 +5,7 @@
 
 <section id="landing" class="container col2">
 	<div id="landing-text" class="padded-right">
-		<h2>L'expérience jeux musicaux d'arcade en France</h2>
+		<h1>L'expérience jeux musicaux d'arcade en France</h1>
 		<p class="content">
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 		</p>
@@ -14,6 +14,7 @@
 		</p>
 	</div>
 	<div id="landing-decoration">
+		<img id="landing-picture" src="{{ url_for('static', filename='temp-landing.png') }}">
 		<div id="landing-bars">
 			<div class="bar"></div>
 			<div class="bar"></div>
@@ -88,10 +89,45 @@
 
 <section id="discover-rhythm-games">
 	<h2>Découvrez les jeux de rythme</h2>
+	<div class="content big-container col2 inverted">
+		<div class="left col-spaced">
+			<div>
+				<h3 class="title">Les différents jeux</h3>
+				<p>
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+				</p>
+			</div>
+			<p class="col-centered">
+				<a class="button">En savoir plus</a>
+			</p>
+		</div>
+
+		<div class="right col-spaced">
+			<div>
+				<h3 class="title">Comment et où y jouer</h3>
+				<p>
+					Hey why don't you just get up and dance man?
+				</p>
+			</div>
+			<p class="col-centered">
+				<a class="button">En savoir plus</a>
+			</p>
+		</div>
+	</div>
 </section>
 
-<section id="previous-events">
+<section id="previous-events" class="container">
 	<h2>Les derniers événements</h2>
+	<div class="content grid">
+		<img class="grid-item" src="https://pbs.twimg.com/media/ERac77pXkAEfe-b?format=jpg">
+		<img class="grid-item" src="https://pbs.twimg.com/media/ERac9rtXYAINSiD?format=jpg">
+		<img class="grid-item" src="https://pbs.twimg.com/media/ERE3liJW4AANlSD?format=jpg">
+		<img class="grid-item" src="https://pbs.twimg.com/media/ELMdpbaW4AAZYVC?format=jpg">
+		<img class="grid-item" src="https://pbs.twimg.com/media/EGq-nqzW4AISfbq?format=jpg">
+	</div>
+	<p class="col-centered">
+		<a class="button">Voir les derniers événements</a>
+	</p>
 </section>
 
 {% endblock %}

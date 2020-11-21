@@ -16,12 +16,12 @@
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 
 	{% assets output="css/bundle.css",
-		"css/fonts.css",
 		"css/variables.css",
 		"css/base.css",
+		"css/containers.css",
+		"css/icons.css",
 		"css/buttons.css",
 		"css/navbar.css",
-		"css/main.css",
 		"css/footer.css",
 		"css/flash.css",
 		"css/responsive.css"
@@ -120,15 +120,15 @@
 		</nav>
 
 		<div id="sns">
-			<a><img class="icon" src="{{ url_for('static', filename='icons/discord-white.png') }}"></a>
-			<a><img class="icon" src="{{ url_for('static', filename='icons/facebook-white.png') }}"></a>
-			<a><img class="icon" src="{{ url_for('static', filename='icons/github-white.png') }}"></a>
-			<a><img class="icon" src="{{ url_for('static', filename='icons/twitter-white.png') }}"></a>
+			<a href="https://asso-msn.fr/discord"><img class="icon" src="{{ url_for('static', filename='icons/discord-white.png') }}"></a>
+			<a href="https://www.facebook.com/assoMakeSomeNoise"><img class="icon" src="{{ url_for('static', filename='icons/facebook-white.png') }}"></a>
+			<a href="https://github.com/asso-msn"><img class="icon" src="{{ url_for('static', filename='icons/github-white.png') }}"></a>
+			<a href="twitter.com/assoMSN"><img class="icon" src="{{ url_for('static', filename='icons/twitter-white.png') }}"></a>
 		</div>
 	</footer>
 
 	<div id="copy">
-		All images (including icons) except those from brands © 2016 - {{ moment().format('Y') }} MAKE SOME NOISE
+		All images except brand icons © 2016 - {{ moment().format('Y') }} MAKE SOME NOISE
 	</div>
 
 	<script>
@@ -136,5 +136,7 @@
 	</script>
 	{{ moment.include_jquery() }}
 	{{ moment.include_moment() }}
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+	<script src="{{ url_for('static', filename='js/base.js') }}"></script>
 </body>
 </html>

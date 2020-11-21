@@ -23,16 +23,8 @@ section > h2 {
 	margin: 2em 0 1em;
 }
 
-.emoji, .icon {
-	width: 1em;
-	height: 1em;
-	object-fit: contain;
-	margin: 0 .05em 0 .1em;
-	vertical-align: -0.1em;
-}
-
-.icon.discord {
-	vertical-align: -0.2em;
+main {
+	min-height: calc(100vh - 400px - 5em);
 }
 
 .main-title {
@@ -48,35 +40,11 @@ section > h2 {
 	vertical-align: -1.1em;
 }
 
-.container {
-	max-width: 1200px;
-	margin: auto;
-	padding-left: var(--container-padding);
-	padding-right: var(--container-padding);
+.inverted {
+	color: white;
 }
 
-.section-title {
-	font-size: 1.3em;
-	font-weight: bold;
-}
-
-.col-centered {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.col-spaced {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.col2 {
-	display: flex;
-	flex-direction: row;
-}
-
-.col2 > * {
-	width: 50%;
+.inverted .button {
+	background-color: white;
+	color: var(--msn);
 }

@@ -1,0 +1,11 @@
+.emoji, .icon {
+	width: 1em;
+	height: 1em;
+	object-fit: contain;
+	margin: 0 .05em 0 .1em;
+	vertical-align: -0.1em;
+}
+
+.icon.discord {
+	vertical-align: -0.2em;
+}
