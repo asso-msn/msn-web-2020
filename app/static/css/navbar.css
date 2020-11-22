@@ -16,7 +16,7 @@
 }
 
 #navbar .main-title {
-	margin-right: 6em;
+	margin-right: 2em;
 }
 
 #navbar nav {
@@ -33,4 +33,36 @@
 
 #navbar a.button {
 	color: white;
+}
+
+#navbar section {
+	position: relative;
+}
+
+#navbar section .subsection {
+	display: flex;
+	visibility: hidden;
+	flex-direction: column;
+	padding: 1em;
+	position: absolute;
+	top: 100%;
+	min-width: 100%;
+	text-align: center;
+	background-color: white;
+	border-radius: 0 0 10px 10px;
+	box-shadow: 0 2px 2px var(--shadow-color);
+}
+
+#navbar section:hover .subsection {
+	visibility: visible;
+}
+
+#navbar .subsection > * {
+	display: block;
+	border-top: 1px solid var(--light-gray);
+	padding: 0.5em 0;
+}
+
+#navbar .subsection > *:nth-child(1) {
+	border-top: none;
 }

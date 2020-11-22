@@ -5,3 +5,15 @@ window.onload = (event) => {
     // percentPosition: true
   });
 };
+
+/*
+nav_links = document.querySelectorAll('#navbar section .section-name');
+nav_links.forEach(e => {
+  e.onclick = () => {
+    nav_links.forEach(n =>{
+      n.parentElement.classList.remove('active');
+    });
+    e.parentElement.classList.add('active');
+  };
+});
+*/

@@ -8,4 +8,4 @@ def home():
 
 @bp.route('/about-msn')
 def about_msn():
-    return render_templatr('about-msn.html')
+    return render_template('about-msn.html')

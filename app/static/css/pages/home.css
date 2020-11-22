@@ -198,8 +198,11 @@
 	object-fit: contain;
 }
 
-#previous-events .content .grid-item,
-#previous-events .content .grid-sizer {
-	width: calc(33% - 1em);
+#previous-events .content .grid-item {
+	width: calc(25% - 1em);
 	margin: .5em;
+}
+
+#previous-events .content .grid-item.big {
+	width: calc(50% - 1em);
 }
