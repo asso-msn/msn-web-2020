@@ -6,6 +6,10 @@
 __pycache__/
 .webassets-cache/
 
+# Venv
+.venv/
+venv/
+
 # Binary files
 *.db
 
