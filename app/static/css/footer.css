@@ -30,7 +30,8 @@ footer nav .section-name {
 	font-weight: bold;
 }
 
-footer nav a {
+footer nav a, footer nav a:visited, footer nav a:active {
+	color: inherit;
 	margin: 0.3em 0;
 }
 
