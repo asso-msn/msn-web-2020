@@ -25,7 +25,7 @@ def init_blueprint(module, prefix=False, **kwargs):
         **kwargs,
     )
 
-def create_app(config_path='xden.cfg'):
+def create_app(config_path='app.cfg'):
     os.environ['CONFIG_FILE'] = os.environ.get('CONFIG_FILE', config_path)
     app = Flask(__name__)
     app.config.from_object(Config)
