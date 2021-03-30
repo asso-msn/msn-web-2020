@@ -1,5 +1,5 @@
-from .. import init_blueprint
-from ..main.models import User
+from app import init_blueprint
+from app.models import User
 
 bp = init_blueprint(__name__, prefix=True)
 

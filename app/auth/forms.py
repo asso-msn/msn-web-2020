@@ -2,13 +2,12 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, ValidationError, Length, Email
 
-from ..main.models import User
-from ..form_utils import length_validator, is_alnum_check, username_taken_check
+from app.form_utils import length_validator, is_alnum_check, username_taken_check
+from app.models import User
 
 class LoginForm(FlaskForm):
-    username = StringField('Nom d\'utilisateur', validators=[
+    login = StringField('Nom d\'utilisateur', validators=[
         DataRequired(),
-        length_validator(User.name),
         is_alnum_check,
     ])
     password = PasswordField('Mot de passe', validators=[DataRequired()])
@@ -16,13 +15,12 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Me connecter')
 
 class RegistrationForm(FlaskForm):
-    username = StringField('Nom d\'utilisateur', validators=[
+    login = StringField('Nom d\'utilisateur', validators=[
         DataRequired(),
-        length_validator(User.name),
         username_taken_check,
         is_alnum_check,
     ])
+    name = StringField('Nom d\'affichage', validators=[length_validator(User._name)])
     password = LoginForm.password
     remember_me = LoginForm.remember_me
     submit = SubmitField('M\'inscire')
-

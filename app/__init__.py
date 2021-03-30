@@ -37,7 +37,7 @@ def create_app(config_path='app.cfg'):
     migrate.init_app(app, db)
 
     for module in ['admin', 'auth', 'main']:
-        module = importlib.import_module('{}.{}'.format(__name__, module))
+        module = importlib.import_module(f'{__name__}.{module}')
         app.register_blueprint(module.bp)
 
     return app

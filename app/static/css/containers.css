@@ -1,13 +1,26 @@
 .container {
 	max-width: 1200px;
+}
+
+.big-container {
+	max-width: 2200px;
+}
+
+.small-container {
+	max-width: 780px;
+}
+
+.container,
+.big-container,
+.small-container {
 	margin: auto;
 	padding-left: var(--container-padding);
 	padding-right: var(--container-padding);
 }
 
-.big-container {
-	max-width: 2200px;
-	margin: auto;
+.container.borderless, .big-container.borderless, .small-container.borderless {
+	padding-left: 0;
+	padding-right: 0;
 }
 
 .section-title {

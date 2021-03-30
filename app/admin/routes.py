@@ -1,4 +1,3 @@
-from ..main.models import User
 from . import bp
 
 @bp.route('test')

@@ -1,6 +1,6 @@
 from wtforms.validators import Length, ValidationError
 
-from .main.models import User
+from app.models import User
 
 def is_alnum_check(form, field):
     if not field.data.isalnum():
@@ -9,9 +9,12 @@ def is_alnum_check(form, field):
         )
 
 def length_validator(property):
-    return Length(max=property.property.columns[0].type.length)
+    length = property.property.columns[0].type.length
+    if not length:
+        raise TypeError(f'Argument {property} does not have a length')
+    return Length(max=length)
 
 def username_taken_check(form, input):
-    user = User.query.filter_by(name=input.data).first()
+    user = User.query.filter_by(login=input.data).first()
     if user is not None:
         raise ValidationError('This login is already taken')

@@ -1,9 +1,12 @@
+# Back
 flask
 flask-login
 flask-migrate
 flask-moment
 flask-sqlalchemy
 flask-wtf
+requests
+pyyaml
 
 # Front
 flask-assets

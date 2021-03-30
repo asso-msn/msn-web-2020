@@ -16,3 +16,7 @@ venv/
 /app/static/bundle.css
 temp-*
 tmp-*
+
+# Config
+/app.cfg
+/keys.yaml

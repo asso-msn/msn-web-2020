@@ -7,9 +7,11 @@ from app import db, login
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64))
-    password = db.Column(db.String(128))
+    login = db.Column(db.String, unique=True)
+    _name = db.Column('name', db.String(64))
+    password = db.Column(db.String)
     is_admin = db.Column(db.Boolean, default=False)
+    is_hidden = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
         return '<{0} #{1.id} {1.username}>'.format(type(self).__name, self)
@@ -22,6 +24,10 @@ class User(UserMixin, db.Model):
             self.password is not None and
             check_password_hash(self.password, password)
         )
+
+    @property
+    def name(self):
+        return self._name or self.login
 
     @staticmethod
     def admin_required(func):
