@@ -17,7 +17,7 @@ class Keys:
         if not cls.file_data:
             path = Path(cls.PATH)
             path.touch(exist_ok=True)
-            cls.file_data = yaml.load(path.read_text())
+            cls.file_data = yaml.full_load(path.read_text())
         if not isinstance(cls.file_data, dict):
             logging.warning(f'Empty or invalid {path}')
             cls.file_data = {}
