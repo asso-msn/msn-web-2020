@@ -14,7 +14,10 @@ class User(UserMixin, db.Model):
     is_hidden = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
-        return '<{0} #{1.id} {1.username}>'.format(type(self).__name, self)
+        return f'<{self.__class__.__name__} #{self.id} {self.name}>'
+
+    def __str__(self):
+        return self.name
 
     def set_password(self, password):
         self.password = generate_password_hash(password)
@@ -38,6 +41,12 @@ class User(UserMixin, db.Model):
                 return 'User must be admin', 403
             return func(*args, **kwargs)
         return partial
+
+    def delete(self):
+        from app.models import DiscordAccount
+        DiscordAccount.query.filter_by(user_id=self.id).delete()
+        db.session.delete(self)
+
 
     # @classmethod
     # @login.user_loader

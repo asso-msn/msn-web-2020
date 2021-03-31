@@ -4,4 +4,4 @@ bp = init_blueprint(__name__)
 
 from . import routes
 
-login.login_view = 'main.login'
+login.login_view = 'auth.login'

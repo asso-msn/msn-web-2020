@@ -1,5 +1,5 @@
 from flask import flash, render_template, redirect, request, url_for
-from flask_login import login_user
+from flask_login import login_user, logout_user
 from werkzeug.urls import url_parse
 
 from app import db
@@ -39,3 +39,7 @@ def register_post():
     login_user(user, remember=form.remember_me.data)
     return redirect(url_for('main.home'))
 
+@bp.route('/disconnect')
+def logout():
+    logout_user()
+    return redirect(url_for('main.home'))

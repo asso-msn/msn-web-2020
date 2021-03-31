@@ -66,6 +66,7 @@ def discord_callback():
         discord_account.user_id = user.id
         discord_account.user = user
         db.session.add(discord_account, user)
+        next = redirect(url_for('main.welcome'))
     discord_account.access_token = access_token
     discord_account.refresh_token = result.get('refresh_token')
     if not discord_account.user._name:

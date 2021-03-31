@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="small-container panel">
+	<h1>Bienvenue, {{ current_user.name }} !</h1>
+	{% if current_user.avatar_url %}
+	<div><img src="{{ current_user.avatar_url }}"></div>
+	{% endif %}
+	<p>
+		<a class="button" href="{{ url_for('main.user', id=current_user.id) }}">Voir mon profil</a>
+	</p>
+	<p>
+		<a href="{{ url_for('main.deactivate') }}">Annuler et supprimer mon compte</a>
+	</p>
+</div>
+
+{% endblock %}
