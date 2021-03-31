@@ -4,7 +4,7 @@ from flask import redirect, request, url_for
 from flask_login import login_user
 import requests
 
-from app import db
+from app import db, reporting
 from app.keys import Keys
 from app.models import DiscordAccount, User
 from .. import bp
@@ -58,11 +58,13 @@ def discord_callback():
         logging.warning('Could not authorize to Discord')
         return next
     user_response = response.json()['user']
+    reporting.log('User fetched from Discord API', user_response)
     id = int(user_response['id'])
     discord_account = DiscordAccount.query.get(id)
     if not discord_account:
-        discord_account = DiscordAccount(id=id)
+        discord_account = DiscordAccount(id=id, access_token=access_token)
         user = User()
+        user.set_avatar_from_discord(data=user_response)
         discord_account.user_id = user.id
         discord_account.user = user
         db.session.add(discord_account, user)

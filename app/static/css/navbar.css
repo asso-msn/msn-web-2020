@@ -35,6 +35,10 @@
 	color: white;
 }
 
+#navbar .avatar {
+	height: 3em;
+}
+
 #navbar section {
 	position: relative;
 }

@@ -9,6 +9,7 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     login = db.Column(db.String, unique=True)
     _name = db.Column('name', db.String(64))
+    _avatar_url = db.Column('avatar_url', db.String)
     password = db.Column(db.String)
     is_admin = db.Column(db.Boolean, default=False)
     is_hidden = db.Column(db.Boolean, default=False)
@@ -32,6 +33,10 @@ class User(UserMixin, db.Model):
     def name(self):
         return self._name or self.login
 
+    @property
+    def avatar_url(self):
+        return self._avatar_url or 'https://osu.ppy.sh/images/layout/avatar-guest.png'
+
     @staticmethod
     def admin_required(func):
         @wraps(func)
@@ -42,10 +47,26 @@ class User(UserMixin, db.Model):
             return func(*args, **kwargs)
         return partial
 
+    @property
+    def discord(self):
+        from app.models import DiscordAccount
+        return DiscordAccount.query.filter_by(user_id=self.id).first()
+
     def delete(self):
         from app.models import DiscordAccount
         DiscordAccount.query.filter_by(user_id=self.id).delete()
         db.session.delete(self)
+
+    def set_avatar_from_discord(self, data=None):
+        from app import reporting
+        if data is None:
+            resp = self.discord.call('/users/@me')
+            reporting.log('Discord resp', resp, resp.json())
+            data = resp.json()
+        user_id = data.get('id')
+        avatar_hash = data.get('avatar')
+        self._avatar_url = f'https://cdn.discordapp.com/avatars/{user_id}/{avatar_hash}.png'
+        return self
 
 
     # @classmethod

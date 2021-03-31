@@ -72,8 +72,13 @@
 					</div>
 				</section>
 				{% if current_user.is_authenticated %}
-				<a href="{{ url_for('main.me') }}">Mon profil</a>
-				<a href="{{ url_for('auth.logout') }}">Se déconnecter</a>
+				<section>
+					<img class="avatar section-name" src="{{ current_user.avatar_url }}">
+					<div class="subsection">
+						<a href="{{ url_for('main.me') }}">Mon profil</a>
+						<a href="{{ url_for('auth.logout') }}">Se déconnecter</a>
+					</div>
+				</section>
 				{% else %}
 				<a class="button discord" href="{{ url_for('auth.discord_login') }}">
 					Connexion

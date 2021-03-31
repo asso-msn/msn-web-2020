@@ -48,3 +48,10 @@ main {
 	background-color: white;
 	color: var(--msn);
 }
+
+.avatar {
+	border-radius: 50%;
+	display: block;
+	object-fit: cover;
+	object-position: center;
+}
