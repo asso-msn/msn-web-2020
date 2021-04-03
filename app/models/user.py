@@ -13,6 +13,7 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String)
     is_admin = db.Column(db.Boolean, default=False)
     is_hidden = db.Column(db.Boolean, default=False)
+    socials = db.Column(db.JSON)
 
     def __repr__(self):
         return f'<{self.__class__.__name__} #{self.id} {self.name}>'

@@ -8,6 +8,10 @@ body {
 	overflow-x: hidden;
 }
 
+img {
+	max-width: 100%;
+}
+
 a {
 	cursor: pointer;
 	text-decoration: none;
@@ -54,4 +58,8 @@ main {
 	display: block;
 	object-fit: cover;
 	object-position: center;
+}
+
+.illust {
+	border-radius: 1em;
 }

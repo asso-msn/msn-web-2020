@@ -166,6 +166,7 @@
 
 #discover-rhythm-games .content {
 	font-size: 1.25em;
+	min-height: 500px;
 }
 
 #discover-rhythm-games .content .title {

@@ -1,0 +1,46 @@
+#banner {
+	padding: 30px 0 100px;
+	margin-bottom: 30px;
+	text-align: center;
+	color: white;
+	background-position: center bottom;
+	background-size: 100%;
+	background-repeat: no-repeat;
+
+}
+
+#banner h1 {
+	text-transform: uppercase;
+}
+
+#introduction h2 {
+	margin-top: 0;
+}
+
+#members {
+	display: flex;
+	flex-flow: wrap row;
+	justify-content: space-between;
+}
+
+#members .member {
+	width: calc(33% - 1em);
+	padding: 1em;
+	background-color: var(--lighter-gray);
+	text-align: center;
+	margin: 2em 0;
+}
+
+#members .full-name {
+	font-weight: bold;
+}
+
+#members .role {
+	margin: 1em 0;
+}
+
+#members .avatar {
+	width: 120px;
+	height: 120px;
+	margin: auto;
+}

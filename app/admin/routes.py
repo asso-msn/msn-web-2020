@@ -1,5 +1,5 @@
 from . import bp
 
-@bp.route('test')
-def test():
+@bp.route('/')
+def index():
     return 'test succ'

@@ -77,6 +77,9 @@
 					<div class="subsection">
 						<a href="{{ url_for('main.me') }}">Mon profil</a>
 						<a href="{{ url_for('auth.logout') }}">Se déconnecter</a>
+						{% if current_user.is_admin %}
+						<a href="{{ url_for('admin.index') }}">Admin</a>
+						{% endif %}
 					</div>
 				</section>
 				{% else %}

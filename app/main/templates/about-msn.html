@@ -1,6 +1,64 @@
+{% set styles=['about_msn'] %}
+{% set main_id='about_msn' %}
 {% extends "base.html" %}
 {% block content %}
 
-About MSN
+<div id="banner" class="big-container borderless" style="background-image: url(https://cdn.discordapp.com/attachments/559512661717417986/828043492118364160/header.png)">
+	<div class="small-container">
+		<h1>L'association</h1>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus efficitur, ipsum id cursus consectetur, ante arcu tempus libero, eget convallis tellus ante sit amet lacus.
+		</p>
+	</div>
+</div>
+
+<div class="container">
+	<section id="introduction" class="col2">
+		<div class="content">
+			<h2>Lorem</h2>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus efficitur, ipsum id cursus consectetur, ante arcu tempus libero, eget convallis tellus ante sit amet lacus. Praesent ac tempus ipsum. In in libero maximus, aliquet libero eget, congue tortor. Vestibulum ultrices, erat id hendrerit condimentum, nibh urna consequat felis, quis vestibulum elit nibh eleifend massa.
+			</p>
+			<h2>Ipsum</h2>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus efficitur, ipsum id cursus consectetur, ante arcu tempus libero, eget convallis tellus ante sit amet lacus. Praesent ac tempus ipsum. In in libero maximus, aliquet libero eget, congue tortor. Vestibulum ultrices, erat id hendrerit condimentum, nibh urna consequat felis, quis vestibulum elit nibh eleifend massa. Nullam ornare egestas vestibulum. In consequat fringilla lorem, eu dapibus massa. Proin nibh lectus, efficitur et pretium eu, varius id arcu. Sed vitae semper nibh, a volutpat ipsum. Fusce nec purus non purus consequat imperdiet. Vivamus enim nulla, convallis quis nulla vel, suscipit semper est. Pellentesque consequat elit eget arcu consequat, tincidunt efficitur nulla finibus. Cras pretium maximus augue, vitae.
+			</p>
+		</div>
+		<div>
+			<img src="https://pbs.twimg.com/media/ERE3B8hWkAcJ3GW?format=jpg" class="illust">
+		</div>
+	</section>
+
+	<section id="members">
+		{% for member in members %}
+		<div class="member">
+			{% if member.full_name %}<div class="full-name">{{ member.full_name }}</div>{% endif %}
+			{% if member.alias %}
+			<div class="alias">
+				{% if member.user %}
+				alias <a href="{{ url_for('main.user', id=member.user.id) }}">
+					{{ member.alias }}
+				</a>
+				{% else %}
+				alias {{ member.alias }}
+				{% endif %}
+			</div>
+			{% endif %}
+			{% if member.role %}<div class="role">{{ member.role }}</div>{% endif %}
+			{% if member.avatar_url %}<img src="{{ member.avatar_url }}" class="avatar">{% endif %}
+			{% if member.user.socials %}
+			<div class="socials">
+				{% for key, value in  member.user.socials.items() %}
+				<div class="social">
+					<div class="service-name">{{ key }}</div>
+					<div class="social-link">{{ value }}</div>
+				</div>
+				{% endfor %}
+			</div>
+			{% endif %}
+		</div>
+		{% endfor %}
+	</section>
+</div>
 
 {% endblock %}
