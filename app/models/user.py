@@ -38,6 +38,11 @@ class User(UserMixin, db.Model):
     def avatar_url(self):
         return self._avatar_url or 'https://osu.ppy.sh/images/layout/avatar-guest.png'
 
+    @property
+    def socials_html(self):
+        from app import templating
+        return templating.handle_socials(self.socials)
+
     @staticmethod
     def admin_required(func):
         @wraps(func)

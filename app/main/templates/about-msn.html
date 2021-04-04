@@ -13,7 +13,7 @@
 </div>
 
 <div class="container">
-	<section id="introduction" class="col2">
+	<section id="introduction" class="col2 spaced">
 		<div class="content">
 			<h2>Lorem</h2>
 			<p>
@@ -31,36 +31,26 @@
 
 	<section id="members">
 		{% for member in members %}
-		<div class="member">
-			{% set name1 = member.full_name or member.alias %}
-			{% set name2 = member.alias if member.full_name else None %}
-			{% set url = url_for('main.user', id=member.user.id) if member.user else None %}
-
-			{% if url %}
-			{% if name1 %}{% set name1 = '<a href="'|safe + url + '">'|safe + name1|e + '</a>'|safe %}{% endif %}
-			{% if name2 %}{% set name2 = '<a href="'|safe + url + '">'|safe + name2|e + '</a>'|safe %}{% endif %}
-			{% endif %}
-			<div class="full-name">{{ name1|safe }}</div>
-			{% if name2 %}<div class="alias">alias {{ name2|safe }}</div>{% endif %}
-			{% if member.role %}<div class="role">{{ member.role }}</div>{% endif %}
-			{% if member.avatar_url %}
-			{% if url %}<a href="{{ url }}">{% endif %}
-			<img src="{{ member.avatar_url }}" class="avatar">
-			{% if url %}</a>{% endif %}
-			{% endif %}
-			{% if member.user.socials %}
-			<div class="socials">
-				{% for key, value in  member.user.socials.items() %}
-				<div class="social">
-					<div class="service-name">{{ key }}</div>
-					<div class="social-link">{{ value }}</div>
-				</div>
-				{% endfor %}
-			</div>
-			{% endif %}
-		</div>
+		{% include "_staff.html" %}
 		{% endfor %}
 	</section>
+
+	<div id="endnote" class="col2 spaced">
+		<div class="decorated-illusts">
+			<img src="https://pbs.twimg.com/media/ERE3B8hWkAcJ3GW?format=jpg" class="illust">
+			<img src="https://pbs.twimg.com/media/ERE3B8hWkAcJ3GW?format=jpg" class="illust">
+		</div>
+		<div class="content">
+			<h2>Lorem</h2>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus efficitur, ipsum id cursus consectetur, ante arcu tempus libero, eget convallis tellus ante sit amet lacus. Praesent ac tempus ipsum. In in libero maximus, aliquet libero eget, congue tortor. Vestibulum ultrices, erat id hendrerit condimentum, nibh urna consequat felis, quis vestibulum elit nibh eleifend massa. Nullam ornare egestas vestibulum. In consequat fringilla lorem, eu dapibus massa. Proin nibh lectus, efficitur et pretium eu, varius id arcu. Sed vitae semper nibh, a volutpat ipsum. Fusce nec purus non purus consequat imperdiet. Vivamus enim nulla, convallis quis nulla vel, suscipit semper est. Pellentesque consequat elit eget arcu consequat, tincidunt efficitur nulla finibus. Cras pretium maximus augue, vitae.
+			</p>
+			<h2>Ipsum</h2>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus efficitur, ipsum id cursus consectetur, ante arcu tempus libero, eget convallis tellus ante sit amet lacus. Praesent ac tempus ipsum. In in libero maximus, aliquet libero eget, congue tortor. Vestibulum ultrices, erat id hendrerit condimentum, nibh urna consequat felis, quis vestibulum elit nibh eleifend massa. Nullam ornare egestas vestibulum. In consequat fringilla lorem, eu dapibus massa. Proin nibh lectus, efficitur et pretium eu, varius id arcu. Sed vitae semper nibh, a volutpat ipsum. Fusce nec purus non purus consequat imperdiet. Vivamus enim nulla, convallis quis nulla vel, suscipit semper est. Pellentesque consequat elit eget arcu consequat, tincidunt efficitur nulla finibus. Cras pretium maximus augue, vitae.
+			</p>
+		</div>
+	</div>
 </div>
 
 {% endblock %}

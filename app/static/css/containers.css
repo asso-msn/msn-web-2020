@@ -54,8 +54,13 @@
 .col2 {
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
 }
 
 .col2 > * {
 	width: 50%;
+}
+
+.col2.spaced > * {
+	width: calc(50% - 1em);
 }

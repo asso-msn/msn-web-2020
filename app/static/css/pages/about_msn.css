@@ -1,3 +1,10 @@
+#introduction p, #endnote p {
+	margin-top: 0;
+}
+#introduction h2, #endnote h2 {
+	margin: 0;
+}
+
 #banner {
 	padding: 30px 0 100px;
 	margin-bottom: 30px;
@@ -13,14 +20,14 @@
 	text-transform: uppercase;
 }
 
-#introduction h2 {
-	margin-top: 0;
-}
-
 #members {
 	display: flex;
 	flex-flow: wrap row;
 	justify-content: space-between;
+}
+
+#members a {
+	color: inherit;
 }
 
 #members .member {
@@ -33,6 +40,7 @@
 
 #members .full-name {
 	font-weight: bold;
+	font-size: 1.3em;
 }
 
 #members .role {
@@ -42,5 +50,9 @@
 #members .avatar {
 	width: 120px;
 	height: 120px;
-	margin: auto;
+	margin: 1em auto;
+}
+
+#members .social {
+	margin: .5em 0;
 }

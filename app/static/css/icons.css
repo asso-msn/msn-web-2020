@@ -4,8 +4,18 @@
 	object-fit: contain;
 	margin: 0 .05em 0 .1em;
 	vertical-align: -0.1em;
+	display: inline-block;
+	background-position: center center;
+	background-size: contain;
 }
 
 .icon.discord {
 	vertical-align: -0.2em;
+}
+
+span.icon.discord {
+	background-image: url('/static/icons/discord.png');
+}
+span.icon.twitter {
+	background-image: url('/static/icons/twitter.png');
 }

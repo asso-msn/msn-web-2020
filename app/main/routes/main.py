@@ -14,4 +14,5 @@ def welcome():
 @bp.route('/about-msn')
 def about_msn():
     members = Staff.query.all()
+    members = [members[0] for _ in range(10)]
     return render_template('about-msn.html', members=members)
