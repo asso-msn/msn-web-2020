@@ -1,6 +1,6 @@
 from app import db
 
-class Member(db.Model):
+class Staff(db.Model):
     """
     Represents a member of the MSN organization, as in someone who is a staff
     """
