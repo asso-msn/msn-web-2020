@@ -1,6 +1,6 @@
 from functools import wraps
 from flask_login import UserMixin, current_user, login_required
-from flask import redirect
+from flask import url_for
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from app import db, login
@@ -52,6 +52,10 @@ class User(UserMixin, db.Model):
                 return 'User must be admin', 403
             return func(*args, **kwargs)
         return partial
+
+    @property
+    def link(self):
+        return url_for('main.user', id=self.login or self.id)
 
     @property
     def discord(self):

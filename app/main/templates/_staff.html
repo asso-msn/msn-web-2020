@@ -1,7 +1,7 @@
 <div class="member">
 	{% set name1 = member.full_name or member.alias %}
 	{% set name2 = member.alias if member.full_name else None %}
-	{% set url = url_for('main.user', id=member.user.id) if member.user else None %}
+	{% set url = member.user.link if member.user else None %}
 
 	{% if url %}
 	{% if name1 %}{% set name1 = '<a href="'|safe + url + '">'|safe + name1|e + '</a>'|safe %}{% endif %}
