@@ -7,7 +7,7 @@
 
 #banner {
 	padding: 30px 0 100px;
-	margin-bottom: 30px;
+	margin-bottom: 3.5em;
 	text-align: center;
 	color: white;
 	background-position: center bottom;
@@ -35,7 +35,7 @@
 	padding: 1em;
 	background-color: var(--lighter-gray);
 	text-align: center;
-	margin: 2em 0;
+	margin: 0 0 2em 0;
 }
 
 #members .full-name {
@@ -44,13 +44,14 @@
 }
 
 #members .role {
-	margin: 1em 0;
+	margin-bottom: 1em;
+	font-weight: bold;
 }
 
 #members .avatar {
 	width: 120px;
 	height: 120px;
-	margin: 1em auto;
+	margin: 2em auto;
 }
 
 #members .social {

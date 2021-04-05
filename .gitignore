@@ -2,6 +2,8 @@
 /Pipfile
 /Pipfile.lock
 
+/pyvenv.cfg
+
 # Cache
 __pycache__/
 .webassets-cache/

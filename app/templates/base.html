@@ -43,8 +43,12 @@
 		<div class="container">
 			<a class="main-title" href="{{ url_for('main.home') }}">
 				<img class="main-logo" src="{{ url_for('static', filename='logo-black.png') }}">
-				Make Some Noise
+				<strong class="value">Make Some Noise</strong>
 			</a>
+			<div class="nav-button">
+				<img class="icon burger" src="{{ url_for('static', filename='icons/burger.png') }}">
+				<img class="icon cross" src="{{ url_for('static', filename='icons/cross.png') }}">
+  			</div>
 			<nav>
 				<section>
 					<a class="section-name" href="{{ url_for('main.about_msn') }}">L'association</a>

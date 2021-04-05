@@ -7,9 +7,9 @@
 	{% if name1 %}{% set name1 = '<a href="'|safe + url + '">'|safe + name1|e + '</a>'|safe %}{% endif %}
 	{% if name2 %}{% set name2 = '<a href="'|safe + url + '">'|safe + name2|e + '</a>'|safe %}{% endif %}
 	{% endif %}
+	{% if member.role %}<div class="role">{{ member.role }}</div>{% endif %}
 	<div class="full-name">{{ name1|safe }}</div>
 	{% if name2 %}<div class="alias">alias {{ name2|safe }}</div>{% endif %}
-	{% if member.role %}<div class="role">{{ member.role }}</div>{% endif %}
 	{% if member.avatar_url %}
 	{% if url %}<a href="{{ url }}">{% endif %}
 	<img src="{{ member.avatar_url }}" class="avatar">

@@ -41,13 +41,16 @@
 
 #navbar section {
 	position: relative;
+	display: flex;
+	justify-content: center;
 }
 
 #navbar section .subsection {
 	display: flex;
 	visibility: hidden;
 	flex-direction: column;
-	padding: 1em;
+	padding: 0 1em 1em 1em;
+	margin-top: 1.7em;
 	position: absolute;
 	top: 100%;
 	min-width: 100%;
@@ -55,6 +58,10 @@
 	background-color: white;
 	border-radius: 0 0 10px 10px;
 	box-shadow: 0 2px 2px var(--shadow-color);
+}
+
+#navbar section .avatar ~ .subsection {
+	margin-top: 16px;
 }
 
 #navbar section:hover .subsection {
@@ -69,4 +76,37 @@
 
 #navbar .subsection > *:nth-child(1) {
 	border-top: none;
+}
+
+#navbar section .section-name {
+	display: flex;
+	align-items: center;
+}
+
+#navbar section .section-name .icon {
+	margin-left: 6px;
+}
+
+#navbar .nav-button > * {
+	display: none;
+	cursor: pointer;
+}
+
+#navbar .nav-button {
+	font-size: 3em;
+}
+
+
+@media screen and (max-width: 992px) {
+
+	#navbar nav,
+	#navbar .nav-button.open .burger {
+		display: none;
+	}
+
+	#navbar .nav-button .burger,
+	#navbar .nav-button.open .cross  {
+		display: block;
+	}
+
 }

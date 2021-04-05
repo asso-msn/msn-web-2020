@@ -27,8 +27,13 @@ section > h2 {
 	margin: 2em 0 1em;
 }
 
+main section {
+	margin-bottom: 5em;
+}
+
 main {
 	min-height: calc(100vh - 400px - 5em);
+	margin-bottom: 10em;
 }
 
 .main-title {

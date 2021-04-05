@@ -17,3 +17,11 @@ nav_links.forEach(e => {
   };
 });
 */
+
+//BURGER ANIMATION
+
+$(document).ready(function(){
+  $('.nav-button').click(function(){
+    $(this).toggleClass('open');
+  });
+});
