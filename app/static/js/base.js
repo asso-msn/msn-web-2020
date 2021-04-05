@@ -6,7 +6,7 @@ window.onload = (event) => {
   });
 };
 
-/*
+
 nav_links = document.querySelectorAll('#navbar section .section-name');
 nav_links.forEach(e => {
   e.onclick = () => {
@@ -16,12 +16,12 @@ nav_links.forEach(e => {
     e.parentElement.classList.add('active');
   };
 });
-*/
 
-//BURGER ANIMATION
+
+//NAV BURGER
 
 $(document).ready(function(){
   $('.nav-button').click(function(){
-    $(this).toggleClass('open');
+    $('#navbar').toggleClass('open');
   });
 });

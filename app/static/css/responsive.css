@@ -1,0 +1,110 @@
+
+
+@media screen and (max-width: 992px) {
+
+/* NAVBAR */
+	#navbar .navbar-small {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	#navbar nav,
+	#navbar.open .nav-button .burger,
+	#navbar section .subsection  {
+		display: none;
+	}
+
+	#navbar .container {
+		padding: 0;
+	}
+
+	#navbar .navbar-small{
+		padding: 0 1em;
+	}
+
+	#navbar .nav-button .burger,
+	#navbar.open .nav-button .cross {
+		display: block;
+	}
+
+	#navbar.open nav {
+		display: block;
+		margin-top: 1em;
+	}
+
+	#navbar.open nav section {
+		justify-content: flex-start;
+		flex-direction: column;
+	}
+
+	#navbar.open nav section .section-name {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		border-bottom: 1px solid var(--light-gray);
+		padding: 1em;
+	}
+
+	#navbar section .section-name .icon {
+		transition: all .2s ease-out;
+	}
+
+	#navbar section.active .section-name .icon {
+		transform: rotate(180deg);
+	}
+
+	#navbar.open nav section .section-name.avatar {
+		width: inherit;
+		margin: 1em auto;
+		padding: 0;
+		border: none;
+	}
+
+	#navbar section.active .subsection {
+		position: initial;
+		display: flex;
+		text-align: left;
+		margin: 0;
+		padding: 1em;
+		border-radius: 0;
+		background-color: var(--light-gray);
+		box-shadow: none;
+	}
+
+	#navbar section:hover:not(.active) .subsection {
+		display: none;
+	}
+
+
+	#navbar section.active .subsection a {
+		padding: 1em 0;
+		border-color: white;
+	}
+
+	#navbar section.active .subsection a:first-child {
+		padding-top: 0;
+	}
+
+	#navbar section.active .subsection a:last-child {
+		padding-bottom: 0;
+	}
+
+/* STAFFS */
+	#members .member {
+		width: calc(50% - 1em);
+	}
+}
+
+@media screen and (max-width: 576px) {
+
+/* NAVBAR */
+	#navbar .main-title .value{
+		display: none;
+	}
+
+/* STAFFS */
+	#members .member {
+		width: 100%;
+	}
+}

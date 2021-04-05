@@ -46,8 +46,7 @@
 }
 
 #navbar section .subsection {
-	display: flex;
-	visibility: hidden;
+	display: none;
 	flex-direction: column;
 	padding: 0 1em 1em 1em;
 	margin-top: 1.7em;
@@ -65,7 +64,7 @@
 }
 
 #navbar section:hover .subsection {
-	visibility: visible;
+	display: flex;
 }
 
 #navbar .subsection > * {
@@ -94,19 +93,4 @@
 
 #navbar .nav-button {
 	font-size: 3em;
-}
-
-
-@media screen and (max-width: 992px) {
-
-	#navbar nav,
-	#navbar .nav-button.open .burger {
-		display: none;
-	}
-
-	#navbar .nav-button .burger,
-	#navbar .nav-button.open .cross  {
-		display: block;
-	}
-
 }
