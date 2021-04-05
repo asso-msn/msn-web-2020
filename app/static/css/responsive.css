@@ -12,6 +12,13 @@
 		width: 100%;
 	}
 
+	footer {
+		padding: 1em;
+	}
+
+	#footer-bars {
+		display: none; /* TODO */
+	}
 }
 
 

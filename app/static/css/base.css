@@ -3,9 +3,16 @@
 }
 
 body {
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+
+#body {
 	margin: 80px 0 0;
 	font-family: 'Poppins', sans-serif;
 	overflow-x: hidden;
+	width: 100vw;
 	position: relative;
 }
 

@@ -39,143 +39,145 @@
 </head>
 
 <body>
-	<div id="click-overlay"></div>
-	<div id="navbar">
-		<div class="container">
-			<div class="navbar-small">
-				<a class="main-title" href="{{ url_for('main.home') }}">
-					<img class="main-logo" src="{{ url_for('static', filename='logo-black.png') }}">
-					<strong class="value">Make Some Noise</strong>
-				</a>
-				<div id="nav-toggle">
-					<img class="icon burger" src="{{ url_for('static', filename='icons/burger.png') }}">
-					<img class="icon cross" src="{{ url_for('static', filename='icons/cross.png') }}">
+	<div id="body">
+		<div id="click-overlay"></div>
+		<div id="navbar">
+			<div class="container">
+				<div class="navbar-small">
+					<a class="main-title" href="{{ url_for('main.home') }}">
+						<img class="main-logo" src="{{ url_for('static', filename='logo-black.png') }}">
+						<strong class="value">Make Some Noise</strong>
+					</a>
+					<div id="nav-toggle">
+						<img class="icon burger" src="{{ url_for('static', filename='icons/burger.png') }}">
+						<img class="icon cross" src="{{ url_for('static', filename='icons/cross.png') }}">
+					</div>
+				</div>
+				<nav>
+					<section>
+						<a class="section-name" href="{{ url_for('main.about_msn') }}">L'association</a>
+					</section>
+					<section>
+						<span class="section-name">Explorer <img class="icon caret" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></span>
+						<div class="subsection">
+							<a>Les jeux</a>
+							<a>Où jouer</a>
+							<a>Les associations</a>
+						</div>
+					</section>
+					<section>
+						<span class="section-name">Les événements <img class="icon caret" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></span>
+						<div class="subsection">
+							<a>Prochains événements</a>
+							<a>Gallerie</a>
+							<a>Archives</a>
+						</div>
+					</section>
+					<section>
+						<span class="section-name">La communauté <img class="icon caret" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></span>
+						<div class="subsection">
+							<a>Joueurs</a>
+							<a>Médias</a>
+							<a>Carte</a>
+						</div>
+					</section>
+					<section class="section-user">
+						{% if current_user.is_authenticated %}
+						<div class="section-name profile">
+							<span class="title">
+								<img class="avatar" src="{{ current_user.avatar_url }}">
+								<span class="value">{{ current_user.name }}</span>
+							</span>
+							<img class="icon caret" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}">
+						</div>
+						<div class="subsection">
+							<a href="{{ url_for('main.me') }}">Mon profil</a>
+							<a href="{{ url_for('auth.logout') }}">Se déconnecter</a>
+							{% if current_user.is_admin %}
+							<a href="{{ url_for('admin.index') }}">Admin</a>
+							{% endif %}
+						</div>
+						{% else %}
+						<div class="col-centered action-section">
+							<a class="button discord" href="{{ url_for('auth.discord_login') }}">
+							Connexion
+							<img class="icon discord" src="{{ url_for('static', filename='icons/discord-white.png') }}">
+						</a>
+					</div>
+					{% endif %}
+					</section>
+				</nav>
+			</div>
+		</div>
+
+
+		<main id="{{ main_id }}">
+
+			<ul id="flash-messages">
+				{% for message in get_flashed_messages() %}
+				<li>{{ message }}</li>
+				{% endfor %}
+			</ul>
+
+			{% block content %}
+			{% endblock %}
+
+		</main>
+
+
+		<footer>
+			<div id="footer-bars">
+				<div id="footer-bars-left">
+					<div class="bar"></div>
+					<div class="bar"></div>
+				</div>
+				<div id="footer-bars-right">
+					<div class="bar"></div>
+					<div class="bar"></div>
 				</div>
 			</div>
-			<nav>
+			<a class="main-title" href="{{ url_for('main.home') }}">
+				<img class="main-logo" src="{{ url_for('static', filename='logo-white.png') }}">
+				Make Some Noise
+			</a>
+
+			<nav class="container">
 				<section>
 					<a class="section-name" href="{{ url_for('main.about_msn') }}">L'association</a>
 				</section>
 				<section>
-					<span class="section-name">Explorer <img class="icon caret" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></span>
-					<div class="subsection">
-						<a>Les jeux</a>
-						<a>Où jouer</a>
-						<a>Les associations</a>
-					</div>
+					<a class="section-name">Explorer</a>
+					<a>Les jeux</a>
+					<a>Où jouer</a>
+					<a>Les associations</a>
 				</section>
 				<section>
-					<span class="section-name">Les événements <img class="icon caret" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></span>
-					<div class="subsection">
-						<a>Prochains événements</a>
-						<a>Gallerie</a>
-						<a>Archives</a>
-					</div>
+					<a class="section-name">Les Événements</a>
+					<a>Prochains événements</a>
+					<a>Gallerie</a>
+					<a>Archives</a>
 				</section>
 				<section>
-					<span class="section-name">La communauté <img class="icon caret" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></span>
-					<div class="subsection">
-						<a>Joueurs</a>
-						<a>Médias</a>
-						<a>Carte</a>
-					</div>
-				</section>
-				<section class="section-user">
-					{% if current_user.is_authenticated %}
-					<div class="section-name profile">
-						<span class="title">
-							<img class="avatar" src="{{ current_user.avatar_url }}">
-							<span class="value">{{ current_user.name }}</span>
-						</span>
-						<img class="icon caret" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}">
-					</div>
-					<div class="subsection">
-						<a href="{{ url_for('main.me') }}">Mon profil</a>
-						<a href="{{ url_for('auth.logout') }}">Se déconnecter</a>
-						{% if current_user.is_admin %}
-						<a href="{{ url_for('admin.index') }}">Admin</a>
-						{% endif %}
-					</div>
-					{% else %}
-					<div class="col-centered action-section">
-						<a class="button discord" href="{{ url_for('auth.discord_login') }}">
-						Connexion
-						<img class="icon discord" src="{{ url_for('static', filename='icons/discord-white.png') }}">
-					</a>
-				</div>
-				{% endif %}
+					<a class="section-name">La communauté</a>
+					<a>Joueurs</a>
+					<a>Médias</a>
+					<a>Carte</a>
 				</section>
 			</nav>
-		</div>
-	</div>
 
-
-	<main id="{{ main_id }}">
-
-		<ul id="flash-messages">
-			{% for message in get_flashed_messages() %}
-			<li>{{ message }}</li>
-			{% endfor %}
-		</ul>
-
-		{% block content %}
-		{% endblock %}
-
-	</main>
-
-
-	<footer>
-		<div id="footer-bars">
-			<div id="footer-bars-left">
-				<div class="bar"></div>
-				<div class="bar"></div>
+			<div id="sns">
+				<a href="https://asso-msn.fr/discord"><img class="icon" src="{{ url_for('static', filename='icons/discord-white.png') }}"></a>
+				<a href="https://www.facebook.com/assoMakeSomeNoise"><img class="icon" src="{{ url_for('static', filename='icons/facebook-white.png') }}"></a>
+				<a href="https://github.com/asso-msn"><img class="icon" src="{{ url_for('static', filename='icons/github-white.png') }}"></a>
+				<a href="https://twitter.com/assoMSN"><img class="icon" src="{{ url_for('static', filename='icons/twitter-white.png') }}"></a>
 			</div>
-			<div id="footer-bars-right">
-				<div class="bar"></div>
-				<div class="bar"></div>
-			</div>
+		</footer>
+
+		<div id="copy">
+			All images except brand icons © 2016 - {{ moment().format('Y') }} MAKE SOME NOISE
 		</div>
-		<a class="main-title" href="{{ url_for('main.home') }}">
-			<img class="main-logo" src="{{ url_for('static', filename='logo-white.png') }}">
-			Make Some Noise
-		</a>
 
-		<nav class="container">
-			<section>
-				<a class="section-name" href="{{ url_for('main.about_msn') }}">L'association</a>
-			</section>
-			<section>
-				<a class="section-name">Explorer</a>
-				<a>Les jeux</a>
-				<a>Où jouer</a>
-				<a>Les associations</a>
-			</section>
-			<section>
-				<a class="section-name">Les Événements</a>
-				<a>Prochains événements</a>
-				<a>Gallerie</a>
-				<a>Archives</a>
-			</section>
-			<section>
-				<a class="section-name">La communauté</a>
-				<a>Joueurs</a>
-				<a>Médias</a>
-				<a>Carte</a>
-			</section>
-		</nav>
-
-		<div id="sns">
-			<a href="https://asso-msn.fr/discord"><img class="icon" src="{{ url_for('static', filename='icons/discord-white.png') }}"></a>
-			<a href="https://www.facebook.com/assoMakeSomeNoise"><img class="icon" src="{{ url_for('static', filename='icons/facebook-white.png') }}"></a>
-			<a href="https://github.com/asso-msn"><img class="icon" src="{{ url_for('static', filename='icons/github-white.png') }}"></a>
-			<a href="https://twitter.com/assoMSN"><img class="icon" src="{{ url_for('static', filename='icons/twitter-white.png') }}"></a>
-		</div>
-	</footer>
-
-	<div id="copy">
-		All images except brand icons © 2016 - {{ moment().format('Y') }} MAKE SOME NOISE
 	</div>
-
 	<script>
 		twemoji.parse(document.body);
 	</script>

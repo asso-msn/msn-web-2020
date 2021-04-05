@@ -209,6 +209,10 @@
 }
 
 @media screen and (max-width: 992px) {
+	#landing {
+		height: initial; /* TODO */
+	}
+
 	#landing-text {
 		width: 80%;
 		padding: 2em 0;
@@ -225,6 +229,7 @@
 	#landing-picture {
 		height: 35vh;
 		top: 30px;
+		left: 0;
 		width: 100%;
 		object-fit: contain;
 	}
@@ -242,4 +247,9 @@
 		width: calc(100% - 2em);
 		margin: 1em 0;
 	}
+
+	#next-events .event .details {
+		flex-direction: column;
+	}
+
 }
