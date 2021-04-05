@@ -28,7 +28,7 @@
 		"css/flash.css",
 		"css/responsive.css"
 	%}
-	<link rel="stylesheet" href="{{ ASSET_URL }}">
+	<link rel="stylesheet" href="{{ ASSET_URL|refresh }}">
 	{% endassets %}
 	{% for style in styles %}
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/' + style + '.css') }}">
