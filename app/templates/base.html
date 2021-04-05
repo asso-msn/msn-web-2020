@@ -17,22 +17,22 @@
 	<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 
+	{% for style in styles %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/' + style + '.css') }}">
+	{% endfor %}
 	{% assets output="bundle.css",
-		"css/variables.css",
-		"css/base.css",
-		"css/containers.css",
-		"css/icons.css",
-		"css/buttons.css",
-		"css/navbar.css",
-		"css/footer.css",
-		"css/flash.css",
-		"css/responsive.css"
+	"css/variables.css",
+	"css/base.css",
+	"css/containers.css",
+	"css/icons.css",
+	"css/buttons.css",
+	"css/navbar.css",
+	"css/footer.css",
+	"css/flash.css",
+	"css/responsive.css"
 	%}
 	<link rel="stylesheet" href="{{ ASSET_URL|refresh }}">
 	{% endassets %}
-	{% for style in styles %}
-		<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/' + style + '.css') }}">
-	{% endfor %}
 
 	<script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
 </head>
@@ -41,10 +41,16 @@
 
 	<div id="navbar">
 		<div class="container">
-			<a class="main-title" href="{{ url_for('main.home') }}">
-				<img class="main-logo" src="{{ url_for('static', filename='logo-black.png') }}">
-				Make Some Noise
-			</a>
+			<div class="navbar-small">
+				<a class="main-title" href="{{ url_for('main.home') }}">
+					<img class="main-logo" src="{{ url_for('static', filename='logo-black.png') }}">
+					<strong class="value">Make Some Noise</strong>
+				</a>
+				<div class="nav-button">
+					<img class="icon burger" src="{{ url_for('static', filename='icons/burger.png') }}">
+					<img class="icon cross" src="{{ url_for('static', filename='icons/cross.png') }}">
+				</div>
+			</div>
 			<nav>
 				<section>
 					<a class="section-name" href="{{ url_for('main.about_msn') }}">L'association</a>
@@ -167,6 +173,6 @@
 	{{ moment.include_jquery() }}
 	{{ moment.include_moment() }}
 	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-	<script src="{{ url_for('static', filename='js/base.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/base.js')|refresh }}"></script>
 </body>
 </html>
