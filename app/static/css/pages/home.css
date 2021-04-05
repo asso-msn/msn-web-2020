@@ -207,3 +207,39 @@
 #previous-events .content .grid-item.big {
 	width: calc(50% - 1em);
 }
+
+@media screen and (max-width: 992px) {
+	#landing-text {
+		width: 80%;
+		padding: 2em 0;
+	}
+
+	#landing-decoration::before {
+		display: none;
+	}
+
+	#landing-decoration {
+		position: initial;
+	}
+
+	#landing-picture {
+		height: 35vh;
+		top: 30px;
+		width: 100%;
+		object-fit: contain;
+	}
+
+	#landing-bars {
+		position: relative;
+		left: 20%;
+	}
+
+	#landing-bars .bar {
+		height: 35px;
+	}
+
+	#next-events .event {
+		width: calc(100% - 2em);
+		margin: 1em 0;
+	}
+}

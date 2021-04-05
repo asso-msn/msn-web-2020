@@ -57,3 +57,25 @@
 #members .social {
 	margin: .5em 0;
 }
+
+
+@media screen and (max-width: 1100px) {
+}
+
+
+@media screen and (max-width: 992px) {
+
+/* STAFFS */
+	#members .member {
+		width: calc(50% - 1em);
+	}
+}
+
+
+@media screen and (max-width: 576px) {
+
+/* STAFFS */
+	#members .member {
+		width: 100%;
+	}
+}

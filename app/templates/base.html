@@ -17,9 +17,6 @@
 	<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 
-	{% for style in styles %}
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/' + style + '.css') }}">
-	{% endfor %}
 	{% assets output="bundle.css",
 	"css/variables.css",
 	"css/base.css",
@@ -29,16 +26,20 @@
 	"css/navbar.css",
 	"css/footer.css",
 	"css/flash.css",
-	"css/responsive.css"
+	"css/responsive.css",
+	"css/responsive-navbar.css"
 	%}
 	<link rel="stylesheet" href="{{ ASSET_URL|refresh }}">
 	{% endassets %}
+	{% for style in styles %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/' + style + '.css')|refresh }}">
+	{% endfor %}
 
 	<script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-
+	<div id="click-overlay"></div>
 	<div id="navbar">
 		<div class="container">
 			<div class="navbar-small">
@@ -46,7 +47,7 @@
 					<img class="main-logo" src="{{ url_for('static', filename='logo-black.png') }}">
 					<strong class="value">Make Some Noise</strong>
 				</a>
-				<div class="nav-button">
+				<div id="nav-toggle">
 					<img class="icon burger" src="{{ url_for('static', filename='icons/burger.png') }}">
 					<img class="icon cross" src="{{ url_for('static', filename='icons/cross.png') }}">
 				</div>
@@ -56,7 +57,7 @@
 					<a class="section-name" href="{{ url_for('main.about_msn') }}">L'association</a>
 				</section>
 				<section>
-					<a class="section-name">Explorer <img class="icon" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></a>
+					<span class="section-name">Explorer <img class="icon caret" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></span>
 					<div class="subsection">
 						<a>Les jeux</a>
 						<a>Où jouer</a>
@@ -64,7 +65,7 @@
 					</div>
 				</section>
 				<section>
-					<a class="section-name">Les événements <img class="icon" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></a>
+					<span class="section-name">Les événements <img class="icon caret" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></span>
 					<div class="subsection">
 						<a>Prochains événements</a>
 						<a>Gallerie</a>
@@ -72,16 +73,22 @@
 					</div>
 				</section>
 				<section>
-					<a class="section-name">La communauté <img class="icon" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></a>
+					<span class="section-name">La communauté <img class="icon caret" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></span>
 					<div class="subsection">
 						<a>Joueurs</a>
 						<a>Médias</a>
 						<a>Carte</a>
 					</div>
 				</section>
-				{% if current_user.is_authenticated %}
-				<section>
-					<img class="avatar section-name" src="{{ current_user.avatar_url }}">
+				<section class="section-user">
+					{% if current_user.is_authenticated %}
+					<div class="section-name profile">
+						<span class="title">
+							<img class="avatar" src="{{ current_user.avatar_url }}">
+							<span class="value">{{ current_user.name }}</span>
+						</span>
+						<img class="icon caret" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}">
+					</div>
 					<div class="subsection">
 						<a href="{{ url_for('main.me') }}">Mon profil</a>
 						<a href="{{ url_for('auth.logout') }}">Se déconnecter</a>
@@ -89,13 +96,15 @@
 						<a href="{{ url_for('admin.index') }}">Admin</a>
 						{% endif %}
 					</div>
-				</section>
-				{% else %}
-				<a class="button discord" href="{{ url_for('auth.discord_login') }}">
-					Connexion
-					<img class="icon discord" src="{{ url_for('static', filename='icons/discord-white.png') }}">
-				</a>
+					{% else %}
+					<div class="col-centered action-section">
+						<a class="button discord" href="{{ url_for('auth.discord_login') }}">
+						Connexion
+						<img class="icon discord" src="{{ url_for('static', filename='icons/discord-white.png') }}">
+					</a>
+				</div>
 				{% endif %}
+				</section>
 			</nav>
 		</div>
 	</div>
