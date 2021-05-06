@@ -2,9 +2,9 @@ import logging
 from pathlib import Path
 import yaml
 
-from app import models
+from app.models import Keys
 
-class Keys:
+class KeysManager:
     """
     Retrieves credentials
     """
@@ -19,9 +19,9 @@ class Keys:
             path.touch(exist_ok=True)
             cls.file_data = yaml.full_load(path.read_text())
         if not isinstance(cls.file_data, dict):
-            logging.warning(f'Empty or invalid {path}')
+            logging.warning(f'Empty or invalid {cls.PATH}')
             cls.file_data = {}
-        return cls.file_data.get(key, models.Keys.query.filter_by(id=key).first())
+        return cls.file_data.get(key, Keys.query.filter_by(id=key).first())
 
     @classmethod
     def get(cls, key, *args, fallback=None):

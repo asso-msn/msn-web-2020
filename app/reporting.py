@@ -2,10 +2,10 @@ import logging
 import sys
 import requests
 
-from .keys import Keys
+from app.keys_manager import KeysManager
 
 def emit(msg: str, channel='log'):
-    webhooks = Keys.get('webhooks')
+    webhooks = KeysManager.get('webhooks')
     urls = webhooks.get(channel, webhooks.get('log', []))
     for url in urls:
         requests.post(url, json={'content': msg})

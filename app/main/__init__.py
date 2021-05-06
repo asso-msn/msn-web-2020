@@ -2,4 +2,4 @@ from app import init_blueprint
 
 bp = init_blueprint(__name__)
 
-from . import filters, routes
+from . import error_handlers, filters, routes

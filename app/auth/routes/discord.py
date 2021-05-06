@@ -5,7 +5,8 @@ from flask_login import login_user
 import requests
 
 from app import db, reporting
-from app.keys import Keys
+from app.exceptions import APIError
+from app.keys_manager import KeysManager
 from app.models import DiscordAccount, User
 from .. import bp
 
@@ -19,7 +20,9 @@ SCOPES = [
 def get_auth_params(full=False, urlencode=None):
     if urlencode is None:
         urlencode = not full
-    keys = Keys.get('discord', fallback={})
+    keys = KeysManager.get('discord')
+    if keys is None or 'client_id' not in keys:
+        raise APIError('Discord API credentials not found')
     url = url_for('.discord_callback', _external=True)
     if urlencode:
         urllib.parse.quote(url, safe='')
