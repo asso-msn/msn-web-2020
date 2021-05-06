@@ -1,0 +1,8 @@
+<form action="" method="post">
+	{% for label, input in inputs.items() %}
+	<label for="{{ label }}">{{ label }}</label>
+	{{ input|safe }}
+	<br>
+	{% endfor %}
+	<input type="submit">
+</form>

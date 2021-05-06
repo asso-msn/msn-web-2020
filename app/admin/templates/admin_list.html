@@ -1,0 +1,24 @@
+<table>
+	<thead>
+		<tr>
+			{% for key in fields %}
+			<th>{{ key }}</th>
+			{% endfor %}
+		</tr>
+	</thead>
+	<tbody>
+		{% for item in items %}
+		<tr>
+			{% for key in fields %}
+			<td>
+				{% if key == 'id' %}
+				<a href="{{ item[key] }}">{{ item[key] }}</a>
+				{% else %}
+				{{ item[key] }}
+				{% endif %}
+			</td>
+			{% endfor %}
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
