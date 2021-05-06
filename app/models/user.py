@@ -3,7 +3,8 @@ from flask_login import UserMixin, current_user, login_required
 from flask import url_for
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from app import db, login
+from app import db, login, logger
+from app.exceptions import InsufficientPermissionsError
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -49,7 +50,7 @@ class User(UserMixin, db.Model):
         @login_required
         def partial(*args, **kwargs):
             if not current_user.is_admin:
-                return 'User must be admin', 403
+                raise InsufficientPermissionsError
             return func(*args, **kwargs)
         return partial
 
@@ -68,10 +69,9 @@ class User(UserMixin, db.Model):
         db.session.delete(self)
 
     def set_avatar_from_discord(self, data=None):
-        from app import reporting
         if data is None:
             resp = self.discord.call('/users/@me')
-            reporting.log('Discord resp', resp, resp.json())
+            logger.debug('Discord resp', resp, resp.json())
             data = resp.json()
         user_id = data.get('id')
         avatar_hash = data.get('avatar')

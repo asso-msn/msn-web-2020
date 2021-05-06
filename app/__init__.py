@@ -1,3 +1,4 @@
+import logging
 import importlib
 import os
 from flask import Blueprint, Flask
@@ -8,12 +9,29 @@ from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 
 from .config import Config
+from .reporting import WebhookHandler
 
 assets = Environment()
 db = SQLAlchemy()
 login = LoginManager()
 migrate = Migrate()
 moment = Moment()
+
+def setup_logger():
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.DEBUG)
+    handler = logging.StreamHandler()
+    formatter = logging.Formatter('[%(levelname)s] %(name)s:\n%(message)s\n')
+    handler.setFormatter(formatter)
+    handler.setLevel(logging.DEBUG)
+    logger.addHandler(handler)
+    handler = WebhookHandler()
+    handler.setLevel(logging.WARNING)
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    return logger
+
+logger = setup_logger()
 
 def init_blueprint(module, prefix=False, **kwargs):
     name = module[len(__name__) + 1:]

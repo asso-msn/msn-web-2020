@@ -1,10 +1,9 @@
-import logging
 import urllib
 from flask import redirect, request, url_for
 from flask_login import login_user
 import requests
 
-from app import db, reporting
+from app import db, logger
 from app.exceptions import APIError
 from app.keys_manager import KeysManager
 from app.models import DiscordAccount, User
@@ -24,6 +23,9 @@ def get_auth_params(full=False, urlencode=None):
     if keys is None or 'client_id' not in keys:
         raise APIError('Discord API credentials not found')
     url = url_for('.discord_callback', _external=True)
+    if url.startswith('http://127.0.0.1'):
+        logger.debug('Rewriting URL to localhost')
+        url = 'http://localhost' + url[len('http://127.0.0.1'):]
     if urlencode:
         urllib.parse.quote(url, safe='')
     result = {
@@ -43,7 +45,7 @@ def auth_from_code(code):
     })
     response = requests.post(f'{API_ENDPOINT}/oauth2/token', data=data)
     if not response.ok:
-        logging.warning('Could not authorize user to Discord')
+        logger.warning('Could not authorize user to Discord')
     return response.json()
 
 @bp.route('/login/discord')
@@ -58,10 +60,10 @@ def discord_callback():
     access_token = result.get('access_token')
     response = requests.get(f'{API_ENDPOINT}/oauth2/@me', headers={'Authorization': f'Bearer {access_token}'})
     if not response.ok:
-        logging.warning('Could not authorize to Discord')
+        logger.warning('Could not authorize to Discord')
         return next
     user_response = response.json()['user']
-    reporting.log('User fetched from Discord API', user_response)
+    logger.info('User fetched from Discord API', user_response)
     id = int(user_response['id'])
     discord_account = DiscordAccount.query.get(id)
     if not discord_account:
