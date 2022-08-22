@@ -15,10 +15,9 @@ venv/
 # Binary files
 *.db
 
-/app/static/bundle.css
+bundle.*
 temp-*
 tmp-*
 
 # Config
-/app.cfg
-/keys.yaml
+/config.yaml

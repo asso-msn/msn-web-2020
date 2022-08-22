@@ -30,8 +30,9 @@
 	color: inherit;
 }
 
-#navbar a.button {
-	color: white;
+#navbar .button {
+	padding-top: .2em;
+	padding-bottom: .2em;
 }
 
 #navbar .profile .title .value,
@@ -46,8 +47,9 @@
 #navbar section {
 	position: relative;
 	display: flex;
-	padding: 2em 0;
+	padding: 2em .4em;
 	justify-content: center;
+	min-width: 100px;
 }
 
 #navbar section.section-user {

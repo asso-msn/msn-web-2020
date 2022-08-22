@@ -9,7 +9,7 @@ body {
 }
 
 #body {
-	margin: 80px 0 0;
+	margin: 100px 0 0;
 	font-family: 'Poppins', sans-serif;
 	overflow-x: hidden;
 	width: 100vw;
@@ -92,3 +92,10 @@ main {
 .illust {
 	border-radius: 1em;
 }
+
+.status {
+	font-family: monospace;
+	font-weight: bold;
+}
+.status.ok { color: darkgreen; }
+.status.fail { color: red; }

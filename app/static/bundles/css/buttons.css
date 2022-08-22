@@ -7,6 +7,12 @@
 	text-align: center;
 }
 
+.button.white {
+	background: transparent;
+	border: 2px solid var(--msn);
+	color: var(--msn);
+}
+
 .button.discord {
 	background-color: var(--discord);
 	color: white;

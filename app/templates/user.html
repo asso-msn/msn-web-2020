@@ -1,0 +1,25 @@
+{% macro check(value) %}
+	{% if value %}
+		<span class="status ok">OK</span>
+	{% else %}
+		<span class="status fail">FAIL</span>
+	{% endif %}
+{% endmacro %}
+
+{% extends "base.html" %}
+
+{% block content %}
+
+	<div class="container card">
+		<h1>{{ user.name }}</h1>
+		<div id="profile-picture">
+			<img src="{{ user.avatar }}">
+		</div>
+		{% if current_user.is_admin %}
+			<ul id="status-check">
+				<li>Discord: {{ check(user.discord) }}</li>
+			</ul>
+		{% endif %}
+	</div>
+
+{% endblock %}

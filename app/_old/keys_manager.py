@@ -21,7 +21,7 @@ class KeysManager:
         if not isinstance(cls.file_data, dict):
             logging.warning(f'Empty or invalid {cls.PATH}')
             cls.file_data = {}
-        return cls.file_data.get(key, Keys.query.filter_by(id=key).first())
+        return cls.file_data.get(key) or Keys.query.filter_by(id=key).first()
 
     @classmethod
     def get(cls, key, *args, fallback=None):

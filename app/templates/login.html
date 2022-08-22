@@ -1,0 +1,17 @@
+{% set main_id='login' %}
+{% extends "base.html" %}
+
+{% block content %}
+
+	<form method="post" class="container card" id="login-form">
+
+		<!-- third party logins -->
+		<div>
+			<a href="{{ url_for('.discord_login') }}" class="button discord">
+				<img class="icon discord" src="{{ url_for('static', filename='icons/discord-white.png') }}">
+				Discord
+			</a>
+		</div>
+	</form>
+
+{% endblock %}

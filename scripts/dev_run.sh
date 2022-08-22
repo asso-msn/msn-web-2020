@@ -2,5 +2,5 @@
 
 python -m venv .venv
 ./.venv/bin/pip install -r requirements.txt
-./.venv/bin/flask db upgrade
+./.venv/bin/alembic upgrade head
 FLASK_DEBUG=1 ./.venv/bin/flask run

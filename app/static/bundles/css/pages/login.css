@@ -1,0 +1,14 @@
+#login-form {
+	padding: 2em 1em;
+	max-width: 600px;
+	margin: auto;
+	margin-top: 2em;
+}
+
+#login-form .button {
+	display: block;
+}
+
+#login-form h1 {
+	margin-top: 0;
+}
