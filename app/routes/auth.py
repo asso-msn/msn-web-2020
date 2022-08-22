@@ -5,8 +5,15 @@ from . import bp
 from app import discord
 
 
+LOOPBACK_ADDR = 'http://127.0.0.1'
+
+
 def get_callback_url():
-    return flask.url_for('.discord_callback', _external=True)
+    url = flask.url_for('.discord_callback', _external=True)
+    if url.startswith(LOOPBACK_ADDR):
+        print('Rewriting URL to localhost')
+        url = 'http://localhost' + url[len(LOOPBACK_ADDR):]
+    return url
 
 
 @bp.get('/login')

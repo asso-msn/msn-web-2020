@@ -13,7 +13,6 @@ SCOPES = [
     'identify',
     # 'email',
 ]
-LOOPBACK_ADDR = 'http://127.0.0.1'
 
 
 def get_auth_params(callback, full=False, urlencode=None):
@@ -21,9 +20,6 @@ def get_auth_params(callback, full=False, urlencode=None):
         urlencode = not full
     if not Config.DISCORD_CLIENT_ID:
         raise Exception('Discord API credentials not found')
-    if callback.startswith(LOOPBACK_ADDR):
-        print('Rewriting URL to localhost')
-        callback = 'http://localhost' + callback[len(LOOPBACK_ADDR):]
     if urlencode:
         urllib.parse.quote(callback, safe='')
     result = {
