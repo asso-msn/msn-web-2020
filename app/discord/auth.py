@@ -1,6 +1,5 @@
 import urllib.parse
 import flask_login
-import requests
 
 from . import call, API_ENDPOINT
 from app.config import Config
@@ -37,7 +36,8 @@ def auth_from_code(callback, code):
         'grant_type': 'authorization_code',
         'code': code,
     })
-    response = call('/oauth2/token', data=data)
+    # !!! Not specifying the content type will reset the user's preferences !!!
+    response = call('/oauth2/token', data=data, type='form')
     if not response.ok:
         raise Exception(f'Could not authorize user to Discord: {response} {response.content.decode()}')
     return response.json()
@@ -46,15 +46,15 @@ def auth_from_code(callback, code):
 def get_login_url(callback):
     """Creates the OAuth login URL for the application"""
 
-    url = f'{API_ENDPOINT}/{AUTHORIZE_ROUTE.format(**get_auth_params(callback))}'
-    return url
+    route = AUTHORIZE_ROUTE.format(**get_auth_params(callback))
+    return f'{API_ENDPOINT}/{route}'
 
 def login(callback, code, register=True):
     """Logins a user to Discord using the code passed to the callback URL"""
 
     result = auth_from_code(callback, code)
     access_token = result.get('access_token')
-    response = requests.get(f'{API_ENDPOINT}/oauth2/@me', headers={'Authorization': f'Bearer {access_token}'})
+    response = call('/oauth2/@me', token=access_token)
     if not response.ok:
         raise Exception('Could not authorize to Discord')
     user_response = response.json()['user']

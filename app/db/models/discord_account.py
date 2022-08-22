@@ -15,9 +15,7 @@ class DiscordAccount(Base):
 
     def call(self, *args, **kwargs):
         from app import discord
-        headers = kwargs.get('headers') or {}
-        headers.setdefault('Authorization', f'Bearer {self.access_token}')
-        kwargs['headers'] = headers
+        kwargs['token'] = self.access_token
         return discord.call(*args, **kwargs)
 
     def update_avatar(self, data=None):

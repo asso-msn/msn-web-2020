@@ -1,0 +1,19 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+	<ul>
+		{% for route in routes %}
+			<li>
+				{% if route.rule.arguments %}
+					<span class="route">{{ route.rule }}</span>
+				{% else %}
+					<a class="route" href="{{ url_for(route.rule.endpoint) }}">{{ route.rule }}</a>
+				{% endif %}
+				{% if route.func.__doc__ %}
+					<span class="doc">{{ route.func.__doc__ }}</span>
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+
+{% endblock %}

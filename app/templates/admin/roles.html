@@ -1,0 +1,47 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+	<div class="container">
+		<div id="roles">
+			<h2>Roles</h2>
+			<ul>
+				{% for role in roles %}
+					{% set id = 'role-' + role.id %}
+					<li>
+						<input data-role-id="{{ role.id }}" data-name="{{ role.name }}" type="checkbox" id="{{ id }}" {{ role.db|checkify }}>
+						<label for="{{ id }}">{{ role.name }}</label>
+						{% if role.db %}
+							<span>{{ role.db }}</span>
+						{% endif %}
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<code>
+			{{ roles|dumps }}
+		</code>
+	</div>
+
+{% endblock %}
+
+
+{% block javascript %}
+	<script>
+		for (const input of document.querySelectorAll('[data-role-id]')) {
+			input.onchange = (event) => {
+				if (event.target.checked) {
+					fetch_json('/api/roles', data={
+						"discord_role_id": input.dataset.roleId,
+						"name": input.dataset.name
+					});
+				} else {
+					fetch_json('/api/roles', data={
+						"discord_role_id": input.dataset.roleId,
+						"delete": true
+					});
+				}
+			};
+		}
+	</script>
+{% endblock %}

@@ -22,3 +22,7 @@ app = App()
 
 from app import db
 app.after_request(db.after_request)
+
+from app import templating
+app.context_processor(templating.context_processor)
+templating.register_filters(app)

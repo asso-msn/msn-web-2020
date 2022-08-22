@@ -1,0 +1,31 @@
+{% for role in roles %}
+	<div>
+		{% set id = 'role-' + role.id %}
+		<input data-role-id="{{ role.id }}" data-name="{{ role.name }}" type="checkbox" id="{{ id }}" {{ role.db|checkify }}>
+		<label for="{{ id }}">{{ role.name }}</label>
+		{% if role.db %}
+			<span>{{ role.db }}</span>
+		{% endif %}
+	</div>
+{% endfor %}
+<code style="white-space: pre;">
+	{{ roles|dumps }}
+</code>
+
+<script>
+	for (const input of document.querySelectorAll('[data-role-id]')) {
+		input.onchange = (event) => {
+			if (event.target.checked) {
+				call('/api/games/', data={
+					"discord_role_id": input.dataset.roleId,
+					"name": input.dataset.name
+				});
+			} else {
+				call('/api/games/', data={
+					"discord_role_id": input.dataset.roleId,
+					"delete": true
+				});
+			}
+		};
+	}
+</script>

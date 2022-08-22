@@ -61,3 +61,14 @@ class Base:
             pk += ' ' + ', '.join(f'{x}={getattr(self, x)}' for x in self.REPR_KEYS)
 
         return f"<{type(self).__name__} {pk}>"
+
+    def set_slug(self, target, value, replace=True):
+        from app.db import Session
+        if not replace and getattr(self, target) is not None:
+            return
+        slug = value.lower().replace(' ', '-')
+        cls = type(self)
+        with Session() as session:
+            if session.query(type(self)).filter(getattr(cls, target) == slug).first():
+                raise Exception('Duplicate slug')
+        setattr(self, target, slug)

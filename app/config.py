@@ -22,6 +22,10 @@ class Config:
     DISCORD_PUBLIC_KEY = None
     DISCORD_CLIENT_SECRET = None
 
+    DISCORD_BOT_CLIENT_ID = None
+    DISCORD_BOT_TOKEN = None
+    DISCORD_SERVER_ID = None
+
     @property
     @classmethod
     def SQLALCHEMY_DATABASE_URI(cls):

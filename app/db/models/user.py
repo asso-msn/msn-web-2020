@@ -3,7 +3,7 @@ import sqlalchemy as sa
 from sqlalchemy import orm
 from sqlalchemy.ext import hybrid
 
-from app.db import Base, Session
+from app.db import Base
 
 
 class User(Base, flask_login.UserMixin):
@@ -12,6 +12,7 @@ class User(Base, flask_login.UserMixin):
     _name = sa.Column('name', sa.String)
     email = sa.Column(sa.String)
     password_hash = sa.Column(sa.String)
+    is_admin = sa.Column(sa.Boolean)
 
     discord = orm.relationship('DiscordAccount', back_populates='user', uselist=False)
 
@@ -21,11 +22,7 @@ class User(Base, flask_login.UserMixin):
 
     @name.setter
     def name(self, value):
-        slug = value.lower().replace(' ', '-')
-        with Session() as session:
-            if session.query(type(self)).filter_by(slug=slug).first():
-                raise Exception('Duplicate name')
-        self.slug = slug
+        self.set_slug('slug', value)
         self._name = value
 
     @property

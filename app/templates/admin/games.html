@@ -1,0 +1,52 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+
+	<div class="container">
+		<div id="games">
+			<h2>Games</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>Slug</th>
+						<th>Name</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for game in games %}
+					<tr data-slug="{{ game.slug }}">
+						<td><input class="slug" value="{{ game.slug }}"></td>
+						<td><input class="name" value="{{ game.name }}"></td>
+						<td>
+							Discord role: {{ game.discord_role_id|statusify|safe }}
+							<button role="save">Save</button>
+							<a href="{{ url_for('.game_editor', slug=game.slug) }}">Editor</a>
+						</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<code>
+			{{ games|dumps }}
+		</code>
+	</div>
+
+{% endblock %}
+
+
+{% block javascript %}
+	<script>
+		for (const el of document.querySelectorAll("#games [data-slug]")) {
+			const save = el.querySelector("[role=\"save\"]");
+			save.onclick = () => {
+				fetch_json(`/api/games/${el.dataset.slug}`, {
+					slug: el.querySelector(".slug").value,
+					name: el.querySelector(".name").value,
+				});
+			};
+		}
+	</script>
+{% endblock %}
+

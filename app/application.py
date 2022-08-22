@@ -7,10 +7,11 @@ from app import config, login_manager
 
 class Blueprint(flask.Blueprint):
     def __init__(self, module_name: str, prefix=False, name=None):
-        if name is not None:
-            name  = name
-        else:
-            name = module_name.replace('.', '_')
+        # if name is not None:
+        #     name  = name
+        # else:
+        #     name = module_name.replace('.', '_')
+        name = name or module_name.split('.')[-1]
         if prefix == False:
             prefix = None
         elif prefix == True:

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block container %}
+	<div class="container">
+		<h1><a href="{{ url_for('main.admin.index') }}">Admin</a></h1>
+
+		{% block content %}
+		{% endblock %}
+	</div>
+{% endblock %}

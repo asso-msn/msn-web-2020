@@ -28,7 +28,7 @@
 		<div id="navbar">
 			<div class="container">
 				<div class="navbar-small">
-					<a class="main-title" href="{{ url_for('.index') }}">
+					<a class="main-title" href="{{ url_for('main.index') }}">
 						<img class="main-logo" src="{{ url_for('static', filename='logo-black.png') }}">
 						<strong class="value">Make Some Noise</strong>
 					</a>
@@ -44,7 +44,7 @@
 					<section>
 						<span class="section-name">Jeux <img class="icon caret" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></span>
 						<div class="subsection">
-							<a>Liste</a>
+							<a href="{{ url_for('main.games') }}">Liste</a>
 							<a>Guides</a>
 							<a>Où jouer</a>
 						</div>
@@ -75,15 +75,15 @@
 							<img class="icon caret" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}">
 						</div>
 						<div class="subsection">
-							<a href="{{ url_for('.me') }}">Mon profil</a>
-							<a href="{{ url_for('.logout') }}">Se déconnecter</a>
+							<a href="{{ url_for('main.me') }}">Mon profil</a>
+							<a href="{{ url_for('main.logout') }}">Se déconnecter</a>
 							{% if current_user.is_admin %}
-							<a href="{{ url_for('.admin') }}">Admin</a>
+							<a href="{{ url_for('main.admin.index') }}">Admin</a>
 							{% endif %}
 						</div>
 						{% else %}
 						<div class="col-centered action-section">
-							<a class="button white" href="{{ url_for('.login') }}">
+							<a class="button white" href="{{ url_for('main.login') }}">
 							    Mon espace
 							</a>
 						</a>
@@ -103,7 +103,9 @@
 				{% endfor %}
 			</ul>
 
+			{% block container %}
 			{% block content %}
+			{% endblock %}
 			{% endblock %}
 
 		</main>
@@ -120,7 +122,7 @@
 					<div class="bar"></div>
 				</div>
 			</div>
-			<a class="main-title" href="{{ url_for('.index') }}">
+			<a class="main-title" href="{{ url_for('main.index') }}">
 				<img class="main-logo" src="{{ url_for('static', filename='logo-white.png') }}">
 				Make Some Noise
 			</a>
@@ -175,9 +177,11 @@
 	<!-- Luxon is a library for manipulating and formatting dates, successor of Moment.js -->
 	<script src="https://cdn.jsdelivr.net/npm/luxon@2/build/global/luxon.min.js"></script>
 	<!-- Masonry helps with dynamic "grid" layouts -->
-	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+	<!-- <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script> -->
     {% assets 'js' %}
 	<script src="{{ ASSET_URL }}"></script>
     {% endassets %}
+	{% block javascript %}
+	{% endblock %}
 </body>
 </html>

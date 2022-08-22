@@ -1,4 +1,5 @@
 import flask
+
 from . import bp
 
 

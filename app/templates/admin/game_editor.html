@@ -1,0 +1,14 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+	<div class="input-group">
+		<label for="name">Name</label>
+		<input id="name" name="name" value="{{ game.name }}">
+	</div>
+
+	<div class="input-group">
+		<label for="slug">Slug</label>
+		<input id="slug" name="slug" value="{{ game.slug }}">
+	</div>
+
+{% endblock %}
