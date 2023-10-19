@@ -2,7 +2,6 @@ import flask
 
 from app import Blueprint
 
-
 bp = Blueprint(__name__, prefix=True)
 
 

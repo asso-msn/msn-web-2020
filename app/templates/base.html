@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<title>
@@ -42,7 +43,8 @@
 						<a class="section-name">L'association</a>
 					</section>
 					<section>
-						<span class="section-name">Jeux <img class="icon caret" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></span>
+						<span class="section-name">Jeux <img class="icon caret"
+								src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></span>
 						<div class="subsection">
 							<a href="{{ url_for('main.games') }}">Liste</a>
 							<a>Guides</a>
@@ -50,7 +52,8 @@
 						</div>
 					</section>
 					<section>
-						<span class="section-name">Nos événements <img class="icon caret" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></span>
+						<span class="section-name">Nos événements <img class="icon caret"
+								src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></span>
 						<div class="subsection">
 							<a>Prochains événements</a>
 							<a>Galerie</a>
@@ -58,7 +61,8 @@
 						</div>
 					</section>
 					<section>
-						<span class="section-name">La communauté <img class="icon caret" src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></span>
+						<span class="section-name">La communauté <img class="icon caret"
+								src="{{ url_for('static', filename='icons/caret/down-gray.png') }}"></span>
 						<div class="subsection">
 							<a>Joueurs</a>
 							<a>Médias</a>
@@ -84,11 +88,11 @@
 						{% else %}
 						<div class="col-centered action-section">
 							<a class="button white" href="{{ url_for('main.login') }}">
-							    Mon espace
+								Mon espace
 							</a>
-						</a>
-					</div>
-					{% endif %}
+							</a>
+						</div>
+						{% endif %}
 					</section>
 				</nav>
 			</div>
@@ -152,10 +156,14 @@
 			</nav>
 
 			<div id="sns">
-				<a href="https://asso-msn.fr/discord"><img class="icon" src="{{ url_for('static', filename='icons/discord-white.png') }}"></a>
-				<a href="https://www.facebook.com/assoMakeSomeNoise"><img class="icon" src="{{ url_for('static', filename='icons/facebook-white.png') }}"></a>
-				<a href="https://github.com/asso-msn"><img class="icon" src="{{ url_for('static', filename='icons/github-white.png') }}"></a>
-				<a href="https://twitter.com/assoMSN"><img class="icon" src="{{ url_for('static', filename='icons/twitter-white.png') }}"></a>
+				<a href="https://asso-msn.fr/discord"><img class="icon"
+						src="{{ url_for('static', filename='icons/discord-white.png') }}"></a>
+				<a href="https://www.facebook.com/assoMakeSomeNoise"><img class="icon"
+						src="{{ url_for('static', filename='icons/facebook-white.png') }}"></a>
+				<a href="https://github.com/asso-msn"><img class="icon"
+						src="{{ url_for('static', filename='icons/github-white.png') }}"></a>
+				<a href="https://twitter.com/assoMSN"><img class="icon"
+						src="{{ url_for('static', filename='icons/twitter-white.png') }}"></a>
 			</div>
 		</footer>
 
@@ -177,11 +185,12 @@
 	<!-- Luxon is a library for manipulating and formatting dates, successor of Moment.js -->
 	<script src="https://cdn.jsdelivr.net/npm/luxon@2/build/global/luxon.min.js"></script>
 	<!-- Masonry helps with dynamic "grid" layouts -->
-	<!-- <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script> -->
-    {% assets 'js' %}
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+	{% assets 'js' %}
 	<script src="{{ ASSET_URL }}"></script>
-    {% endassets %}
+	{% endassets %}
 	{% block javascript %}
 	{% endblock %}
 </body>
+
 </html>
