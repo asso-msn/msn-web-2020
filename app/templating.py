@@ -2,18 +2,17 @@ import json
 
 
 def context_processor():
-    return {
-    }
+    return {}
 
 
 def register_filters(app):
     @app.template_filter()
     def boolify(x):
-        return 'true' if bool(x) else 'false'
+        return "true" if bool(x) else "false"
 
     @app.template_filter()
     def checkify(x):
-        return 'checked' if bool(x) else ''
+        return "checked" if bool(x) else ""
 
     @app.template_filter()
     def dumps(x):

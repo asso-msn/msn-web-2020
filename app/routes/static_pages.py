@@ -3,6 +3,6 @@ import flask
 from . import bp
 
 
-@bp.get('/')
+@bp.get("/")
 def index():
-    return flask.render_template('index.html')
+    return flask.render_template("index.html")

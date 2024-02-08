@@ -8,7 +8,7 @@ APP_DIR = APP_DIR.parent.relative_to(APP_DIR.parent.parent)
 CONFIG_PATH = Path("./config.yaml")
 
 
-from app.application import App, Blueprint
+from app.application import App
 
 
 @login_manager.user_loader
